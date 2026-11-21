@@ -1,0 +1,469 @@
+<!doctype html><html><head><meta charset=utf8><meta name="robots" content="noindex,nofollow"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Chalk &amp; Iron</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Permanent+Marker&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a design spec sheet on a gym-floor iron plate. Brand, then the anvil system, then three working phone screens on a real map, then tokens and parts. Single dark look by design. */
+:root{
+  color-scheme:dark;
+  --iron:#121211;      /* page ground, rubber floor */
+  --plate:#1b1b19;     /* cards and app background */
+  --steel:#262623;     /* raised surfaces */
+  --edge:#3b3a36;      /* hairlines and outlines */
+  --chalk:#efece4;     /* primary ink, filled anvils */
+  --dust:#a8a49a;      /* secondary ink */
+  --ash:#6f6c65;       /* empty anvils, muted */
+  --rust:#c4552d;      /* stamp ink, one accent used sparingly */
+  --go:#8fbf7a;        /* open now (semantic) */
+  --display:"Black Ops One","Impact",sans-serif;
+  --label:"Barlow Condensed","Arial Narrow",sans-serif;
+  --body:"Barlow",system-ui,sans-serif;
+  --hand:"Permanent Marker","Comic Sans MS",cursive;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{background:var(--iron)}
+body{background:var(--iron);color:var(--chalk);font-family:var(--body);font-size:15px;line-height:1.55;
+  background-image:radial-gradient(rgba(239,236,228,.035) 1px,transparent 1px);background-size:5px 5px}
+.wrap{max-width:1120px;margin:0 auto;padding-block:40px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:64px}
+a{color:var(--chalk)}
+.eyebrow{font-family:var(--label);text-transform:uppercase;letter-spacing:.18em;font-size:13px;color:var(--dust);font-weight:600}
+h1,h2,h3{margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(26px,4vw,34px);letter-spacing:.02em;line-height:1.1}
+h3{font-family:var(--label);font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:.06em}
+p{margin:0}
+.lede{color:var(--dust);max-width:64ch}
+section{display:grid;gap:22px}
+.sec-head{display:grid;gap:8px}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;padding-bottom:8px;border-bottom:1px dashed var(--edge)}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(44px,8vw,84px);line-height:.95;letter-spacing:.02em}
+.hero .tag{font-family:var(--label);font-size:20px;letter-spacing:.12em;text-transform:uppercase;color:var(--dust)}
+.mark{width:132px;height:132px;border:3px solid var(--chalk);border-radius:50%;display:grid;place-items:center;position:relative}
+.mark::after{content:"";position:absolute;inset:7px;border:1px dashed var(--ash);border-radius:50%}
+.mark svg{width:76px;fill:var(--chalk)}
+@media (max-width:560px){.hero{grid-template-columns:1fr}.mark{width:104px;height:104px}}
+
+/* Anvil system */
+.anvils{display:inline-flex;gap:var(--ag,3px);align-items:center;vertical-align:middle}
+.anv{position:relative;width:var(--as,22px);height:calc(var(--as,22px)*.7);display:inline-block}
+.anv svg{position:absolute;inset:0;width:100%;height:100%;fill:var(--ash)}
+.anv .fill{position:absolute;inset:0;overflow:hidden;width:var(--f,100%)}
+.anv .fill svg{width:var(--as,22px);fill:var(--chalk)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.panel{background:var(--plate);border:1px solid var(--edge);border-radius:6px;padding:20px;display:grid;gap:14px;align-content:start;min-width:0}
+.scale{display:grid;gap:10px}
+.scale-row{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
+.scale-row b{font-family:var(--label);font-size:17px;letter-spacing:.06em;text-transform:uppercase}
+.scale-row span{color:var(--dust);font-size:14px}
+.sizes{display:flex;flex-wrap:wrap;gap:18px;align-items:end}
+.sizes figure{margin:0;display:grid;gap:6px;justify-items:start}
+.sizes figcaption{font-family:var(--mono);font-size:11px;color:var(--ash)}
+.cat{display:grid;grid-template-columns:118px 1fr auto;gap:10px;align-items:center;font-size:14px}
+.cat .k{font-family:var(--label);text-transform:uppercase;letter-spacing:.05em;color:var(--dust);font-weight:600}
+.cat .v{font-family:var(--mono);font-size:12px;color:var(--dust);font-variant-numeric:tabular-nums}
+.stamp{display:inline-grid;place-items:center;text-align:center;border:3px double var(--rust);color:var(--rust);font-family:var(--display);font-size:13px;letter-spacing:.06em;line-height:1.05;padding:8px 12px;transform:rotate(-6deg);border-radius:4px;text-transform:uppercase}
+.stamp small{font-family:var(--label);font-size:10px;letter-spacing:.2em}
+.note{font-size:13px;color:var(--ash)}
+
+/* Phones */
+.phones{display:flex;flex-wrap:wrap;gap:28px;justify-content:center}
+.phone-col{display:grid;gap:10px;justify-items:center;width:310px;max-width:100%}
+.phone-col p{color:var(--dust);font-size:14px;text-align:center;max-width:300px}
+.phone{width:310px;max-width:100%;padding:9px;border-radius:44px;background:#050505;border:1px solid #2e2d2a;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.scr{position:relative;height:640px;border-radius:36px;overflow:hidden;background:var(--plate);display:flex;flex-direction:column;font-size:13px}
+.status{height:40px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:0 26px;font-family:var(--body);font-weight:600;font-size:13px}
+.status i{font-style:normal;letter-spacing:1px;font-size:11px}
+
+/* Map screen */
+.mapwrap{position:absolute;inset:0}
+.mapwrap svg{width:100%;height:100%;display:block}
+.m-top{position:absolute;top:44px;left:12px;right:12px;display:grid;gap:8px;z-index:2}
+.search{display:flex;align-items:center;gap:8px;background:rgba(27,27,25,.94);border:1px solid var(--edge);border-radius:6px;padding:10px 12px;color:var(--dust)}
+.search svg{width:16px;height:16px;flex:none;stroke:var(--dust);fill:none;stroke-width:2}
+.search .f{margin-left:auto;font-family:var(--label);text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--chalk);border-left:1px solid var(--edge);padding-left:10px;display:flex;gap:6px;align-items:center}
+.search .f b{background:var(--chalk);color:var(--iron);border-radius:3px;padding:0 5px;font-size:11px}
+.chips{display:flex;gap:6px;overflow:hidden}
+.chip{flex:none;font-family:var(--label);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:4px 9px;border:1px solid var(--edge);border-radius:3px;background:rgba(27,27,25,.92);color:var(--dust)}
+.chip.on{background:var(--chalk);color:var(--iron);border-color:var(--chalk)}
+.seg{position:absolute;top:150px;right:12px;z-index:2;display:flex;border:1px solid var(--edge);border-radius:4px;overflow:hidden;font-family:var(--label);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.seg span{padding:5px 10px;background:rgba(27,27,25,.92);color:var(--dust)}
+.seg span.on{background:var(--chalk);color:var(--iron)}
+.sheet{position:absolute;left:10px;right:10px;bottom:84px;z-index:2;background:var(--plate);border:1px solid var(--edge);border-radius:8px;padding:12px;display:grid;grid-template-columns:64px 1fr;gap:12px}
+.thumb{width:64px;height:64px;border-radius:4px;background:repeating-linear-gradient(135deg,#2b2b28 0 6px,#232321 6px 12px);display:grid;place-items:center}
+.thumb svg{width:34px;fill:var(--ash)}
+.sheet .nm{font-family:var(--display);font-size:17px;line-height:1.1;letter-spacing:.02em}
+.sheet .meta{color:var(--dust);font-size:12px}
+.sheet .row{display:flex;gap:8px;align-items:center;margin-top:3px}
+.mini-tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
+.mt{font-family:var(--label);font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:1px 6px;background:var(--steel);border-radius:2px;color:var(--chalk)}
+.recenter{position:absolute;right:14px;bottom:222px;z-index:2;width:38px;height:38px;border-radius:6px;background:var(--plate);border:1px solid var(--edge);display:grid;place-items:center}
+.recenter svg{width:18px;stroke:var(--chalk);fill:none;stroke-width:2}
+.tabbar{position:absolute;left:0;right:0;bottom:0;height:74px;z-index:3;background:#0f0f0e;border-top:1px solid var(--edge);display:grid;grid-template-columns:repeat(4,1fr);padding-top:9px}
+.tabbar div{display:grid;justify-items:center;gap:3px;font-family:var(--label);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ash)}
+.tabbar div.on{color:var(--chalk)}
+.tabbar svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8}
+.attrib{position:absolute;left:12px;bottom:80px;z-index:1;font-size:8px;color:var(--ash);font-family:var(--mono)}
+
+/* Detail screen */
+.scroll{flex:1;overflow:hidden;display:grid;align-content:start}
+.photo{height:190px;position:relative;background:linear-gradient(180deg,rgba(18,18,17,0) 40%,var(--plate) 100%),repeating-linear-gradient(90deg,#252523 0 22px,#1f1f1d 22px 24px)}
+.photo .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--ash);font-family:var(--label);text-transform:uppercase;letter-spacing:.12em;font-size:11px}
+.photo .ph svg{width:120px;fill:#2f2f2c}
+.photo .dots{position:absolute;bottom:36px;left:0;right:0;display:flex;gap:5px;justify-content:center}
+.photo .dots i{width:6px;height:6px;border-radius:50%;background:var(--ash)}
+.photo .dots i:first-child{background:var(--chalk)}
+.back{position:absolute;top:8px;left:12px;width:32px;height:32px;border-radius:50%;background:rgba(18,18,17,.8);display:grid;place-items:center}
+.back svg{width:16px;stroke:var(--chalk);fill:none;stroke-width:2.2}
+.save{left:auto;right:12px}
+.d-body{padding:0 16px 90px;display:grid;gap:12px;margin-top:-26px;position:relative}
+.d-head{display:grid;gap:4px;justify-items:start}
+.d-head .nm{font-family:var(--display);font-size:25px;line-height:1;letter-spacing:.02em}
+.d-head .meta{color:var(--dust);font-size:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.open{color:var(--go);font-weight:600}
+.badge{display:inline-flex;gap:5px;align-items:center;font-family:var(--label);font-size:11px;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--chalk);padding:1px 6px;border-radius:2px}
+.badge svg{width:13px;fill:var(--chalk)}
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.act{display:grid;justify-items:center;gap:3px;padding:8px 0;background:var(--steel);border-radius:4px;font-family:var(--label);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--chalk)}
+.act svg{width:18px;height:18px;stroke:var(--chalk);fill:none;stroke-width:1.8}
+.take{background:var(--steel);border-radius:4px;padding:12px;display:grid;gap:8px;position:relative;border-left:0}
+.take .who{font-family:var(--hand);font-size:15px;color:var(--chalk);transform:rotate(-1.5deg);transform-origin:left}
+.take ul{margin:0;padding:0;list-style:none;display:grid;gap:3px;font-size:12px}
+.take li{display:grid;grid-template-columns:14px 1fr;gap:4px;color:var(--dust)}
+.take li b{color:var(--chalk);font-weight:600}
+.dsec{display:grid;gap:7px}
+.dsec h4{margin:0;font-family:var(--label);font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--dust);font-weight:600;border-bottom:1px dashed var(--edge);padding-bottom:4px}
+.dcat{display:grid;grid-template-columns:96px 1fr;gap:6px;align-items:center;font-size:12px;color:var(--dust)}
+.specials{display:grid;gap:4px;font-size:12px}
+.specials div{display:flex;justify-content:space-between;gap:8px;color:var(--dust)}
+.specials b{color:var(--chalk);font-weight:500}
+.cta{position:absolute;left:12px;right:12px;bottom:18px;z-index:3;background:var(--chalk);color:var(--iron);border-radius:6px;padding:13px;text-align:center;font-family:var(--display);font-size:15px;letter-spacing:.06em;display:flex;gap:8px;justify-content:center;align-items:center}
+.cta svg{width:20px;fill:var(--iron)}
+
+/* Review screen */
+.r-head{padding:4px 16px 12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--edge)}
+.r-head span{font-family:var(--label);text-transform:uppercase;letter-spacing:.08em;color:var(--dust);font-size:13px}
+.r-head b{font-family:var(--display);font-weight:400;font-size:16px;letter-spacing:.03em}
+.r-body{padding:14px 16px 90px;display:grid;gap:14px}
+.overall{display:grid;justify-items:center;gap:6px;padding:14px 0 16px;border-bottom:1px dashed var(--edge)}
+.overall .big{font-family:var(--display);font-size:40px;line-height:1}
+.overall .word{font-family:var(--label);text-transform:uppercase;letter-spacing:.2em;font-size:13px;color:var(--dust)}
+.rcat{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center}
+.rcat .k{font-family:var(--label);font-size:14px;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.rcat .h{grid-column:1/-1;font-size:11px;color:var(--ash);margin-top:-2px}
+.field{background:var(--steel);border-radius:4px;padding:10px;font-size:12px;color:var(--dust);min-height:64px;border:1px solid var(--edge)}
+.field .cursor{display:inline-block;width:1px;height:13px;background:var(--chalk);vertical-align:middle;margin-left:1px}
+.photos-row{display:flex;gap:6px}
+.photos-row div{width:54px;height:54px;border-radius:4px;background:var(--steel);border:1px dashed var(--ash);display:grid;place-items:center;color:var(--dust);font-size:20px}
+.photos-row div.p{border-style:solid;background:repeating-linear-gradient(45deg,#2c2c29 0 5px,#252523 5px 10px)}
+
+/* Parts */
+.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.swt{border:1px solid var(--edge);border-radius:4px;overflow:hidden;font-size:12px}
+.swt i{display:block;height:54px}
+.swt div{padding:7px 9px;display:grid;gap:1px;background:var(--plate)}
+.swt b{font-family:var(--label);text-transform:uppercase;letter-spacing:.06em;font-size:13px}
+.swt code{font-family:var(--mono);color:var(--dust);font-size:11px}
+.type-row{display:grid;gap:4px;padding:10px 0;border-bottom:1px dashed var(--edge)}
+.type-row:last-child{border-bottom:0}
+.type-row code{font-family:var(--mono);font-size:11px;color:var(--ash)}
+.pins{display:flex;gap:26px;align-items:end;flex-wrap:wrap}
+.pins figure{margin:0;display:grid;justify-items:center;gap:8px}
+.pins figcaption{font-size:12px;color:var(--dust);text-align:center;max-width:110px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{font-family:var(--display);font-size:14px;letter-spacing:.05em;padding:10px 16px;border-radius:5px;border:0}
+.btn.p{background:var(--chalk);color:var(--iron)}
+.btn.s{background:transparent;color:var(--chalk);border:1px solid var(--chalk)}
+.btn.g{background:var(--steel);color:var(--chalk)}
+.voice{display:grid;gap:10px}
+.voice div{display:grid;grid-template-columns:110px 1fr;gap:10px;font-size:14px}
+.voice div span:first-child{font-family:var(--label);text-transform:uppercase;letter-spacing:.06em;color:var(--dust)}
+footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding-top:18px;display:grid;gap:6px;max-width:80ch}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="anvil" viewBox="0 0 24 17"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></symbol>
+    <filter id="chalkgrain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 .94  0 0 0 0 .93  0 0 0 0 .9  0 0 0 .09 0"/>
+      <feComposite in2="SourceGraphic" operator="over"/>
+    </filter>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 24 17"><use href="#anvil"/></svg></div>
+    <div style="display:grid;gap:10px">
+      <div class="eyebrow">Theme direction 2 · fleshed out</div>
+      <h1>VIA ARDUA</h1>
+      <div class="tag">Gyms for the hard way · Wisconsin</div>
+      <p class="lede">Chalk &amp; Iron treats the app like the basement gym Paul and his crew go looking for: cast-iron black, chalk-white type, stamped steel, and nothing shiny. Ratings are anvils, because a good gym is where you get hammered into shape.</p>
+    </div>
+  </header>
+
+  <!-- ANVILS -->
+  <section aria-labelledby="anv-h">
+    <div class="sec-head">
+      <div class="eyebrow">Rating system</div>
+      <h2 id="anv-h">Rated in anvils</h2>
+      <p class="lede">Every score is 1 to 5 anvils, in half steps. A filled anvil is chalk white. An empty one is cold iron. Half anvils are cut at the waist, so a 4.5 reads at a glance on the map card.</p>
+    </div>
+    <div class="grid2">
+      <div class="panel">
+        <h3>What the anvils mean</h3>
+        <div class="scale" id="scale"></div>
+      </div>
+      <div class="panel">
+        <h3>Category breakdown</h3>
+        <div style="display:grid;gap:9px" id="cats"></div>
+        <p class="note">Sample scores for layout only. Paul's real ratings replace these.</p>
+      </div>
+      <div class="panel">
+        <h3>Sizes</h3>
+        <div class="sizes" id="sizes"></div>
+        <h3 style="margin-top:6px">Paul's seal</h3>
+        <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+          <span class="stamp">Heavy Iron<br>Certified<small>Via Ardua</small></span>
+          <p class="note" style="max-width:24ch">Stamped on gyms Paul rates 4.5 anvils or higher for equipment. It's the only place the rust-red stamp ink appears.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENS -->
+  <section aria-labelledby="scr-h">
+    <div class="sec-head">
+      <div class="eyebrow">Key screens</div>
+      <h2 id="scr-h">Find, check it out, rate it</h2>
+      <p class="lede">The map is real: OpenStreetMap streets and buildings around Premier Fitness at 2408 W Nordale Dr in Grand Chute (Appleton), drawn in grayscale. In the app, the same style is applied to Apple Maps.</p>
+    </div>
+    <div class="phones">
+
+      <!-- 1. Map -->
+      <div class="phone-col">
+        <div class="phone"><div class="scr">
+          <div class="mapwrap" id="bigmap"></div>
+          <div class="status" style="position:relative;z-index:2"><span>5:12</span><i>●●● ▮</i></div>
+          <div class="m-top">
+            <div class="search">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+              <span>City or gym</span>
+              <span class="f">Filters <b>2</b></span>
+            </div>
+            <div class="chips"><span class="chip on">Open now</span><span class="chip on">Platforms</span><span class="chip">Kettlebells</span><span class="chip">Sleds</span></div>
+          </div>
+          <div class="seg"><span class="on">Map</span><span>List</span></div>
+          <div class="recenter"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg></div>
+          <div class="attrib">© OpenStreetMap contributors</div>
+          <div class="sheet">
+            <div class="thumb"><svg viewBox="0 0 24 17"><use href="#anvil"/></svg></div>
+            <div style="min-width:0">
+              <div class="nm">PREMIER FITNESS</div>
+              <div class="meta">Appleton · <span class="open">Open 24/7</span> · 1.2 mi</div>
+              <div class="row"><span data-anv="4.5" data-size="15"></span><span class="meta">4.5 · Paul</span></div>
+              <div class="mini-tags"><span class="mt">Platforms</span><span class="mt">Turf</span><span class="mt">Shakes</span></div>
+            </div>
+          </div>
+          <div class="tabbar" id="tabs1"></div>
+        </div></div>
+        <p>Opens on your location with Paul's gyms stamped on the map. Tap a pin for the preview card.</p>
+      </div>
+
+      <!-- 2. Detail -->
+      <div class="phone-col">
+        <div class="phone"><div class="scr">
+          <div class="status"><span>5:13</span><i>●●● ▮</i></div>
+          <div class="scroll">
+            <div class="photo">
+              <div class="ph"><svg viewBox="0 0 24 17"><use href="#anvil"/></svg></div>
+              <div class="back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></div>
+              <div class="back save"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg></div>
+              <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="d-body">
+              <div class="d-head">
+                <span class="badge"><svg viewBox="0 0 24 17"><use href="#anvil"/></svg>Paul's pick</span>
+                <div class="nm">PREMIER FITNESS</div>
+                <div class="meta"><span data-anv="4.5" data-size="14"></span><span>4.5 · 3 reviews</span></div>
+                <div class="meta"><span class="open">Open 24/7, holidays too</span><span>· 2408 W Nordale Dr</span></div>
+              </div>
+              <div class="actions">
+                <div class="act"><svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8z"/></svg>Directions</div>
+                <div class="act"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg>Text</div>
+                <div class="act"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Website</div>
+                <div class="act"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/></svg>Insta</div>
+              </div>
+              <div class="take">
+                <div class="who">Paul's take</div>
+                <ul>
+                  <li><b>+</b><span>Open around the clock, so it fits any shift</span></li>
+                  <li><b>+</b><span>Platforms, racks and Hammer Strength plate-loaded</span></li>
+                  <li><b>–</b><span>Sample line until Paul writes his own</span></li>
+                </ul>
+              </div>
+              <div class="dsec">
+                <h4>Anvil breakdown</h4>
+                <div id="dcats" style="display:grid;gap:5px"></div>
+              </div>
+              <div class="dsec">
+                <h4>At the counter</h4>
+                <div class="specials">
+                  <div><b>Protein shake, made to order</b><span>ask</span></div>
+                  <div><b>Wraps, made fresh daily</b><span>ask</span></div>
+                  <div><b>Energy drinks and bites</b><span>ask</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cta"><svg viewBox="0 0 24 17"><use href="#anvil"/></svg>RATE THIS GYM</div>
+        </div></div>
+        <p>Gym page: Paul's take up top in his handwriting, then the anvil breakdown and the counter specials.</p>
+      </div>
+
+      <!-- 3. Review -->
+      <div class="phone-col">
+        <div class="phone"><div class="scr">
+          <div class="status"><span>5:20</span><i>●●● ▮</i></div>
+          <div class="r-head"><span>Cancel</span><b>RATE IT</b><span style="color:var(--chalk)">Post</span></div>
+          <div class="r-body">
+            <div class="overall">
+              <div class="word">Premier Fitness · Overall</div>
+              <span data-anv="4" data-size="34" data-gap="6"></span>
+              <div class="big">4.0</div>
+              <div class="word">Solid iron</div>
+            </div>
+            <div id="rcats" style="display:grid;gap:12px"></div>
+            <div class="field">Real deal. Got a full pull session in at 4:30 before the job site<span class="cursor"></span></div>
+            <div class="photos-row"><div class="p"></div><div class="p"></div><div>+</div></div>
+          </div>
+          <div class="cta">POST REVIEW</div>
+        </div></div>
+        <p>Tap or drag across the anvils to score. Half anvils come from tapping the left half.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PARTS -->
+  <section aria-labelledby="parts-h">
+    <div class="sec-head">
+      <div class="eyebrow">Building blocks</div>
+      <h2 id="parts-h">Colors, type and parts</h2>
+    </div>
+    <div class="panel">
+      <h3>Palette</h3>
+      <div class="swatches" id="swatches"></div>
+    </div>
+    <div class="parts">
+      <div class="panel">
+        <h3>Type</h3>
+        <div class="type-row"><span style="font-family:var(--display);font-size:28px;line-height:1">PREMIER FITNESS</span><code>Black Ops One · names and headings</code></div>
+        <div class="type-row"><span style="font-family:var(--label);font-size:18px;text-transform:uppercase;letter-spacing:.08em;font-weight:600">Platforms · Sleds · Peg board</span><code>Barlow Condensed · labels and chips</code></div>
+        <div class="type-row"><span>Open 24/7 with showers, an infrared sauna and private changing rooms.</span><code>Barlow · body text</code></div>
+        <div class="type-row"><span style="font-family:var(--hand);font-size:19px">Paul's take</span><code>Permanent Marker · Paul's voice only</code></div>
+      </div>
+      <div class="panel">
+        <h3>Map pins</h3>
+        <div class="pins" id="pins"></div>
+      </div>
+      <div class="panel">
+        <h3>Buttons</h3>
+        <div class="btns"><button class="btn p" type="button">RATE THIS GYM</button><button class="btn s" type="button">DIRECTIONS</button><button class="btn g" type="button">SAVE</button></div>
+        <h3 style="margin-top:8px">Chips</h3>
+        <div class="chips" style="flex-wrap:wrap"><span class="chip on">Kettlebells</span><span class="chip">Tires</span><span class="chip">Peg board</span><span class="chip">Dip station</span><span class="chip">Day pass</span></div>
+      </div>
+      <div class="panel">
+        <h3>Voice</h3>
+        <div class="voice">
+          <div><span>Empty search</span><span>No iron here yet. Try the next town over.</span></div>
+          <div><span>Loading</span><span>Chalking up…</span></div>
+          <div><span>Saved</span><span>Racked. It's in your Saved tab.</span></div>
+          <div><span>Verse slot</span><span style="font-style:italic;color:var(--dust)">Iron sharpens iron. (Proverbs 27:17)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Map data © OpenStreetMap contributors, drawn in grayscale for this mockup. The marker sits at the geocoded address on W Nordale Dr, so its exact spot on the lot is approximate.</span>
+    <span>Gym facts (24/7, address, shakes, wraps, equipment brands) come from premierfitnessofappleton.com. Anvil scores, distances and review text are samples until Paul rates the gym.</span>
+  </footer>
+</div>
+
+<script>
+const ANV='<svg viewBox="0 0 24 17"><use href="#anvil"/></svg>';
+function anvils(score,size=22,gap=3){
+  let h=`<span class="anvils" style="--as:${size}px;--ag:${gap}px" role="img" aria-label="${score} of 5 anvils">`;
+  for(let i=1;i<=5;i++){const f=Math.max(0,Math.min(1,score-(i-1)));
+    h+=`<span class="anv">${ANV}${f>0?`<span class="fill" style="--f:${f*100}%">${ANV}</span>`:""}</span>`}
+  return h+"</span>";
+}
+document.querySelectorAll("[data-anv]").forEach(el=>{el.outerHTML=anvils(+el.dataset.anv,+(el.dataset.size||22),+(el.dataset.gap||3))});
+
+const scale=[[5,"Forged","The real deal. Drive out of your way for it."],[4,"Solid iron","Everything you need, minor gripes."],[3,"Gets it done","Fine for a week on a job."],[2,"Rusty","Thin on gear or rough around the edges."],[1,"Scrap","Skip it unless it's the only option."]];
+document.getElementById("scale").innerHTML=scale.map(([s,w,d])=>`<div class="scale-row">${anvils(s,20)}<div><b>${w}</b><br><span>${d}</span></div></div>`).join("");
+
+const cats=[["Equipment",5],["Functional space",4],["Cleanliness",4.5],["Vibe",4],["Price / value",4],["Day pass ease",3.5],["Hours",5],["Crowding",4.5]];
+document.getElementById("cats").innerHTML=cats.map(([k,v])=>`<div class="cat"><span class="k">${k}</span>${anvils(v,18,2)}<span class="v">${v.toFixed(1)}</span></div>`).join("");
+document.getElementById("dcats").innerHTML=cats.slice(0,6).map(([k,v])=>`<div class="dcat"><span>${k}</span>${anvils(v,15,2)}</div>`).join("");
+const hints={"Equipment":"Quality and variety of the iron","Functional space":"Turf, open floor, room for sleds and carries","Cleanliness":"Floors, gear, showers","Hours":"Fits early starts and late finishes"};
+document.getElementById("rcats").innerHTML=cats.filter(c=>hints[c[0]]).map(([k,v])=>`<div class="rcat"><span class="k">${k}</span>${anvils(v,19,4)}<span class="h">${hints[k]}</span></div>`).join("");
+document.getElementById("sizes").innerHTML=[[34,"Review input · 34"],[22,"Gym page · 22"],[15,"Map card · 15"]].map(([s,c])=>`<figure>${anvils(4.5,s,s>30?5:3)}<figcaption>${c}</figcaption></figure>`).join("");
+
+const sw=[["Iron","--iron","#121211","Page and tab bar"],["Plate","--plate","#1b1b19","App background"],["Steel","--steel","#262623","Raised surfaces"],["Edge","--edge","#3b3a36","Lines and outlines"],["Chalk","--chalk","#efece4","Text and filled anvils"],["Dust","--dust","#a8a49a","Secondary text"],["Ash","--ash","#6f6c65","Empty anvils"],["Rust","--rust","#c4552d","Stamp only"]];
+document.getElementById("swatches").innerHTML=sw.map(([n,v,h,u])=>`<div class="swt"><i style="background:var(${v})"></i><div><b>${n}</b><code>${h}</code><span class="note">${u}</span></div></div>`).join("");
+
+const tab=(on)=>[["Find",'<path d="M12 21s-7-6.5-7-12a7 7 0 0114 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/>'],["Via Ardua",'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/>'],["Saved",'<path d="M6 3h12v18l-6-4-6 4z"/>'],["Profile",'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>']].map(([l,p],i)=>`<div class="${i===on?"on":""}"><svg viewBox="0 0 24 24">${p}</svg>${l}</div>`).join("");
+document.getElementById("tabs1").innerHTML=tab(0);
+
+/* Pins */
+function pinPaul(s=1){return `<svg width="${44*s}" height="${56*s}" viewBox="0 0 44 56" aria-hidden="true"><path d="M22 54C22 54 4 34 4 21a18 18 0 0136 0c0 13-18 33-18 33z" fill="#efece4" stroke="#121211" stroke-width="2.5"/><circle cx="22" cy="21" r="13" fill="#121211"/><svg x="12" y="14" width="20" height="14" viewBox="0 0 24 17"><use href="#anvil" fill="#efece4"/></svg></svg>`}
+function pinCommunity(){return `<svg width="26" height="34" viewBox="0 0 26 34" aria-hidden="true"><path d="M13 32S2 20 2 12.5a11 11 0 0122 0C24 20 13 32 13 32z" fill="#262623" stroke="#a8a49a" stroke-width="2"/><circle cx="13" cy="12.5" r="4" fill="#a8a49a"/></svg>`}
+document.getElementById("pins").innerHTML=`<figure>${pinPaul()}<figcaption>Paul reviewed it</figcaption></figure><figure>${pinCommunity()}<figcaption>Community reviews only</figcaption></figure><figure><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15" fill="#262623" stroke="#efece4" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="14" fill="#efece4">6</text></svg><figcaption>Cluster when zoomed out</figcaption></figure>`;
+
+/* Real map: OpenStreetMap ways around 44.2865, -88.4446, projected to a 390 x 511 grid */
+const M={
+svc:"M151 324L128 323M220 430L193 430M220 398L220 387M186 439L162 439M175 439L175 444M164 439L164 444M234 445L234 426M220 414L232 414M234 400L232 414L232 425M250 397L246 398L238 398M237 396L237 433L250 433M250 413L237 414M191 339L191 314L193 311L193 300M193 310L213 310L215 314L215 339M191 329L215 329M163 338L163 333L186 333L186 339M186 333L185 299L163 300L163 333M163 333L160 333L160 300L160 300L163 300M163 297L163 263L174 263L174 258M186 258L185 276L163 276M174 263L186 263M174 263L174 276M168 276L168 263M180 263L180 276M197 258L196 265L200 265L200 273M196 265L194 265L194 268M207 259L207 264L205 268L204 282M230 259L230 248L229 248L229 237L230 237L230 224M229 248L226 248L226 237L229 237M212 259L213 224L246 224L247 234L250 242L251 246L251 259M256 259L256 234M278 260L278 254M278 254L281 254L280 236L270 236M270 236L271 254L278 254M298 260L298 243L300 243L300 229L287 228L275 228L276 236M318 260L318 241L315 241L315 238L310 238M329 260L329 252L324 252M355 261L355 267L366 267L365 261M363 267L363 275M366 267L370 267L370 275M370 267L379 267L379 260M355 267L351 267L351 271L348 271L348 276M321 260L321 295L339 296M316 341L316 311L338 311M366 341L366 336L383 336L388 335L388 333L388 305M366 336L361 336M308 340L308 312L307 311L296 307L281 307L280 340M273 340L273 333L274 333L274 314L273 305M273 333L263 332L263 328M256 340L256 318L255 314M256 332L249 332M242 340L242 330L239 325L239 311M233 339L233 333M233 333L234 333L237 323L236 322L237 318L222 313M222 313L218 328L233 333M223 330L233 301L228 299L223 313M234 317L237 306L236 305L238 301L234 299L233 301M242 259L242 264L257 264L257 259M242 264L242 288L250 288M264 259L263 302M273 302L274 259M263 291L274 291M263 283L274 283M263 272L274 272M263 268L274 268M264 264L274 264M286 260L286 288L303 289L303 260M286 266L303 266M286 288L286 297L303 298L303 289M286 297L280 297M303 298L309 298M312 266L333 267M324 295L324 285M329 296L329 286M313 287L313 295L321 295M338 315L362 315M183 258L184 230L191 230M198 243L199 255L197 255L197 258M209 233L208 259M208 252L202 252L202 258M316 333L330 333M161 258L160 240L161 236L162 233L167 229L173 236L172 241L172 258M183 253L188 253M242 264L233 264L227 266L219 266M242 340L241 378L239 379L218 379L207 378L206 377L206 339M172 373L173 367L206 367M207 378L207 385L209 387L227 387M181 339L180 359L183 361L206 361M113 245L114 218M114 224L128 224L128 219M122 239L129 240L129 252M260 340L260 348L274 348L274 340M254 340L254 347L249 346M152 106L159 107L165 112L169 113L172 113L171 109L169 108L159 107M108 172L108 192M189 416L202 416L203 429M220 419L208 419L208 430M175 426L188 426M170 398L170 402L171 404L189 404M151 380L158 380L159 378L163 377L170 376L172 373L178 369L178 367M199 367L199 379L201 380L207 380M150 301L131 300M129 245L141 245M192 398L192 385M183 398L183 385M167 398L168 385M136 223L135 233L144 234L144 232M144 234L144 243L141 245M138 245L139 234M260 348L258 351L258 371L275 371L277 368L277 350L274 348M250 397L247 392L247 386",
+res:"M128 219L128 214M78 318L77 387L78 394L80 398L82 402L96 414M108 337L109 386L107 396L104 403L101 409L92 419L75 437L70 439L66 440L50 440L46 439M151 257L140 257L136 256L131 253L123 247L119 246L45 244L41 243L35 240M382 -8L375 -7L361 -3L318 9L313 11L297 29L292 38L289 47L285 66L284 75M131 71L132 53L129 46M211 34L210 74M382 28L375 29L336 39L332 41L325 48L323 52L320 69L319 75M151 257L363 261L365 261L369 259M339 260L338 341M352 76L353 41L352 35M151 338L366 341M220 444L220 398M295 -3L296 2L298 13L304 20M153 443L104 443L94 440L89 437L82 431M279 388L280 445M88 276L86 275L81 273L39 273M240 74L241 52L246 41M183 34L181 38L179 86M77 338L50 338L46 339L44 344L44 355M289 47L254 45L233 35L211 34L183 34M119 309L120 303L119 256L123 247M34 284L39 289L42 291L76 291L89 296L120 297M312 401L311 403L311 445M345 400L345 446M250 445L250 397M379 401L377 589M312 401L315 400L383 401L396 400M187 520L177 509M220 398L167 398L164 397L160 395M189 444L189 398M209 510L280 509L317 508L320 509M396 459L373 458L367 455L361 448L355 446L280 445M378 479L204 476L152 476M122 419L123 443M200 73L382 76M200 73L178 68L153 68M153 71L180 72L197 74L200 73M153 68L116 67L110 67L107 65L105 62L103 46L102 42L93 26M147 232L144 232L133 220L131 219L41 216M150 173L-96 168",
+major:"M151 238L153 236L153 225L154 220L157 217L160 215M176 210L173 208L157 207L153 204L152 199L151 198M395 217L222 213M150 182L147 187L147 209M147 195L146 196L142 206L140 207L134 209M160 215L199 215L220 215L222 213M135 214L137 215L144 218L147 224M134 209L67 207L59 207L55 209M150 274L151 272L151 257L151 209M222 213L220 211L151 209M150 182L150 173M55 209L41 208M153 443L151 380L150 274M157 543L158 538L155 476L155 449L153 443M153 443L151 449L152 476L155 539L157 543M147 224L148 271L150 274M55 209L59 211L81 212L105 213M150 173L155 -6M135 214L147 214M151 214L160 215M105 213L135 214M147 209L134 209M147 209L147 214M147 214L151 214M147 214L147 224M151 209L147 209M151 209L151 187L150 182",
+minor:"M280 445L280 537M280 445L153 443",
+stream:"M402 177L390 183L388 187L385 198L386 208M386 208L387 233L391 265L394 266L394 306L392 310L382 312L383 340L381 345L354 352L350 359L346 375L341 380L323 387L318 395L303 397L301 401L297 501L295 504L276 504L277 641M96 443L90 452L84 454L72 455L68 457L30 484L15 488L4 497L0 498M100 439L96 443M146 382L105 436L100 439M156 373L146 382M156 345L157 371L156 373M156 332L156 345M156 263L155 279L156 332M156 252L156 263M180 218L178 220L176 220L165 220L163 222L156 229L155 232L156 252M183 207L180 218M300 78L293 106L292 108L290 110L221 110L200 114L198 115L187 133L182 144L181 147L184 201L183 207",
+bldg:"M380 303L391 304L391 281L386 281L386 277L350 277L350 280L344 280L344 303L375 303L375 318L344 318L344 333L382 333L382 328L380 328ZM318 329L318 318L330 318L330 330L324 330L324 331L323 331L323 330ZM297 308L297 321L303 321L303 322L303 320L305 320L305 322L305 331L300 331L300 322L297 322L296 333L285 333L285 314L287 314L287 308ZM261 315L261 327L273 328L273 315ZM167 300L181 300L181 308L177 308L177 321L184 321L184 328L167 328ZM199 271L199 278L191 278L191 268L197 268L197 271ZM214 265L213 278L205 278L205 268L208 268L208 265ZM245 267L245 286L257 286L257 267ZM324 272L324 283L333 283L333 272L330 272L330 270L327 270L327 272ZM312 271L312 285L319 285L319 271ZM305 272L310 272L309 296L305 296ZM287 272L287 286L301 286L301 272L298 272L299 269L293 269L293 272ZM195 300L195 306L216 306L217 300ZM192 316L192 325L211 325L211 316ZM263 351L272 351L272 356L274 356L274 368L261 368L261 356L263 356ZM284 230L284 249L291 249L292 230ZM258 241L258 252L266 252L266 241ZM235 227L235 241L244 241L244 227L241 227L241 226L238 226L238 227ZM221 227L221 234L229 234L229 227ZM221 234L216 234L216 246L224 246L224 234ZM187 231L192 231L192 224L200 224L200 241L197 240L197 250L187 250ZM203 247L203 244L201 244L202 237L201 237L201 231L202 227L205 227L205 228L208 228L208 231L206 231L206 240L208 240L208 248ZM166 235L168 236L170 239L168 241L168 245L166 245L166 241L163 238ZM169 279L189 280L188 288L186 290L180 290L180 288L174 288L174 290L173 290L173 288L167 288L167 279ZM228 300L224 312L228 313L232 301ZM234 300L230 314L233 315L236 307L234 306L236 301ZM253 310L253 324L252 327L248 327L248 317L249 310ZM219 325L223 314L227 315L222 327ZM232 317L228 328L225 328L229 316ZM236 323L233 330L230 328L234 318L236 318ZM279 272L279 286L284 286L284 272ZM279 287L283 287L283 296L279 296ZM279 299L278 303L306 304L306 300ZM312 299L312 304L332 304L332 299ZM260 266L260 276L263 276L263 266ZM264 294L264 302L272 303L272 294ZM265 284L265 289L273 289L273 284ZM246 319L246 327L243 327L243 325L241 325L241 318ZM161 347L166 347L166 343L174 343L173 348L167 348L167 354L171 355L170 361L165 361L165 355L161 354ZM207 388L213 388L213 395L207 395ZM212 437L205 437L205 432L215 432L215 437ZM228 344L233 344L234 345L233 351L237 352L237 356L236 358L231 358L231 351L227 349L227 345ZM161 378L173 378L173 381L161 381ZM244 398L245 411L240 412L239 400ZM237 384L242 384L242 395L237 395ZM177 432L185 431L185 437L177 438ZM245 425L245 432L240 432L239 426L242 425ZM199 436L193 436L193 431L202 432L202 436ZM212 358L217 358L218 364L221 365L221 371L215 372L215 365L211 364L211 360ZM179 408L184 408L184 415L181 415L181 421L176 421L176 414L179 414ZM198 401L205 401L205 406L199 406L199 411L193 411L193 404L198 404ZM210 409L215 409L215 416L210 416ZM193 419L199 419L199 426L193 426ZM219 343L224 344L224 349L218 350L217 355L212 355L211 349L217 348L217 343ZM207 400L212 400L214 403L214 406L207 406ZM231 361L237 362L237 366L236 368L231 368L231 372L224 372L224 367L230 366L230 362ZM172 386L179 387L179 392L172 392ZM229 426L228 435L229 438L226 438L225 435L226 426ZM253 348L253 353L255 353L255 356L248 356L248 348ZM245 414L245 424L240 424L240 415L242 414ZM166 427L172 427L173 429L172 438L165 438L166 427ZM231 388L233 395L228 397L225 390ZM192 449L199 449L199 453L195 454L192 453ZM197 387L204 387L204 392L197 392ZM229 415L231 416L231 424L229 425L226 425L225 418L226 415ZM188 346L192 346L194 343L201 343L201 349L194 349L194 352L188 353L186 352L187 347ZM232 400L231 409L230 412L225 412L227 402L227 399L230 399ZM210 420L215 420L215 427L210 427ZM162 401L169 401L168 407L161 407ZM136 326L144 326L143 332L136 332ZM137 235L137 241L130 241L131 235ZM114 336L120 336L119 343L114 344L113 338ZM115 228L119 227L122 227L124 229L124 233L123 237L120 237L120 233L116 232ZM138 427L142 426L142 424L145 424L146 429L142 429L142 431L138 431ZM114 362L120 362L120 368L114 369ZM114 370L120 370L120 377L114 377ZM114 380L121 379L121 385L114 384ZM114 387L121 388L120 395L113 394ZM117 323L117 332L113 332L113 325L114 323ZM127 324L132 324L132 331L127 331ZM120 348L119 352L114 352L114 345L120 346ZM114 353L119 354L119 359L114 361ZM118 398L115 404L110 403L113 396ZM110 404L115 406L111 413L106 410ZM99 352L103 352L103 360L99 360ZM99 370L104 376L104 378L99 377ZM100 379L104 381L104 385L103 387L99 387ZM98 335L103 337L103 341L98 342ZM104 298L115 298L115 302L100 301L100 299Z"
+};
+function mapSVG(vb,opts={}){
+  const s=opts.scale||1;
+  return `<svg viewBox="${vb}" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Grayscale street map around Premier Fitness on West Nordale Drive">
+  <rect x="-200" y="-200" width="800" height="900" fill="#1e1e1c"/>
+  <rect x="-200" y="-200" width="800" height="900" filter="url(#chalkgrain)" fill="#1e1e1c"/>
+  <path d="${M.stream}" fill="none" stroke="#3a3a37" stroke-width="${3*s}" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="${M.stream}" fill="none" stroke="#4d4c48" stroke-width="${1*s}" stroke-dasharray="2 2"/>
+  <path d="${M.bldg}" fill="#2c2c29" stroke="#353531" stroke-width=".5"/>
+  <path d="${M.svc}" fill="none" stroke="#2f2f2c" stroke-width="${1.8*s}" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="${M.res}" fill="none" stroke="#4a4945" stroke-width="${3.2*s}" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="${M.res}" fill="none" stroke="#5f5d58" stroke-width="${2.2*s}" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="${M.minor}" fill="none" stroke="#7a7872" stroke-width="${3.4*s}" stroke-linecap="round"/>
+  <path d="${M.major}" fill="none" stroke="#121211" stroke-width="${6*s}" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="${M.major}" fill="none" stroke="#a8a49a" stroke-width="${4.2*s}" stroke-linecap="round" stroke-linejoin="round"/>
+  <g font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="600" letter-spacing=".6" fill="#8d8a82" font-size="${5.6*s}" text-anchor="middle" paint-order="stroke" stroke="#1e1e1c" stroke-width="${1.6*s}">
+    <text transform="translate(144 300) rotate(-90)">N LYNNDALE DR</text>
+    <text x="254" y="208">W NORTHLAND AVE</text>
+    <text x="248" y="256.5">W NORDALE DR</text>
+    <text x="226" y="439">W CAPITOL DR</text>
+    
+    <text x="215" y="474">W ROBERTS AVE</text>
+  </g>
+  ${opts.me?`<g><circle cx="151" cy="318" r="9" fill="#efece4" opacity=".14"/><circle cx="151" cy="318" r="3.6" fill="#efece4" stroke="#121211" stroke-width="1.4"/></g>`:""}
+  ${opts.others?`<g transform="translate(260 300) scale(.42) translate(-13 -32)">${pinCommunity()}</g><g transform="translate(118 393) scale(.42) translate(-13 -32)">${pinCommunity()}</g>`:""}
+  <g transform="translate(195 251) scale(${opts.pin||.62}) translate(-22 -54)">${pinPaul()}</g>
+  </svg>`;
+}
+document.getElementById("bigmap").innerHTML=mapSVG("88 55 214 418",{me:true,pin:.62});
+</script>
+
+</body></html>
