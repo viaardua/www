@@ -92,8 +92,7 @@ section{display:grid;gap:22px}
 .seg span{padding:5px 10px;background:rgba(27,27,25,.92);color:var(--dust)}
 .seg span.on{background:var(--chalk);color:var(--iron)}
 .sheet{position:absolute;left:10px;right:10px;bottom:84px;z-index:2;background:var(--plate);border:1px solid var(--edge);border-radius:8px;padding:12px;display:grid;grid-template-columns:64px 1fr;gap:12px}
-.thumb{width:64px;height:64px;border-radius:4px;background:repeating-linear-gradient(135deg,#2b2b28 0 6px,#232321 6px 12px);display:grid;place-items:center}
-.thumb svg{width:34px;fill:var(--ash)}
+.thumb{width:64px;height:64px;border-radius:4px;object-fit:cover;object-position:40% 60%;display:block;filter:contrast(1.08)}
 .sheet .nm{font-family:var(--display);font-size:17px;line-height:1.1;letter-spacing:.02em}
 .sheet .meta{color:var(--dust);font-size:12px}
 .sheet .row{display:flex;gap:8px;align-items:center;margin-top:3px}
@@ -109,16 +108,15 @@ section{display:grid;gap:22px}
 
 /* Detail screen */
 .scroll{flex:1;overflow:hidden;display:grid;align-content:start}
-.photo{height:190px;position:relative;background:linear-gradient(180deg,rgba(18,18,17,0) 40%,var(--plate) 100%),repeating-linear-gradient(90deg,#252523 0 22px,#1f1f1d 22px 24px)}
-.photo .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--ash);font-family:var(--label);text-transform:uppercase;letter-spacing:.12em;font-size:11px}
-.photo .ph svg{width:120px;fill:#2f2f2c}
-.photo .dots{position:absolute;bottom:36px;left:0;right:0;display:flex;gap:5px;justify-content:center}
+.photo{height:210px;position:relative;isolation:isolate;background:linear-gradient(180deg,rgba(18,18,17,.25) 0%,rgba(18,18,17,0) 35%,rgba(27,27,25,.6) 75%,var(--plate) 100%)}
+.photo .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;z-index:-1;filter:contrast(1.1)}
+.photo .dots{position:absolute;bottom:14px;left:0;right:0;display:flex;gap:5px;justify-content:center}
 .photo .dots i{width:6px;height:6px;border-radius:50%;background:var(--ash)}
 .photo .dots i:first-child{background:var(--chalk)}
 .back{position:absolute;top:8px;left:12px;width:32px;height:32px;border-radius:50%;background:rgba(18,18,17,.8);display:grid;place-items:center}
 .back svg{width:16px;stroke:var(--chalk);fill:none;stroke-width:2.2}
 .save{left:auto;right:12px}
-.d-body{padding:0 16px 90px;display:grid;gap:12px;margin-top:-26px;position:relative}
+.d-body{padding:0 16px 90px;display:grid;gap:12px;margin-top:-6px;position:relative}
 .d-head{display:grid;gap:4px;justify-items:start}
 .d-head .nm{font-family:var(--display);font-size:25px;line-height:1;letter-spacing:.02em}
 .d-head .meta{color:var(--dust);font-size:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -135,6 +133,8 @@ section{display:grid;gap:22px}
 .take li b{color:var(--chalk);font-weight:600}
 .dsec{display:grid;gap:7px}
 .dsec h4{margin:0;font-family:var(--label);font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--dust);font-weight:600;border-bottom:1px dashed var(--edge);padding-bottom:4px}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.strip img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:3px;display:block;max-width:100%}
 .dcat{display:grid;grid-template-columns:96px 1fr;gap:6px;align-items:center;font-size:12px;color:var(--dust)}
 .specials{display:grid;gap:4px;font-size:12px}
 .specials div{display:flex;justify-content:space-between;gap:8px;color:var(--dust)}
@@ -157,7 +157,16 @@ section{display:grid;gap:22px}
 .field .cursor{display:inline-block;width:1px;height:13px;background:var(--chalk);vertical-align:middle;margin-left:1px}
 .photos-row{display:flex;gap:6px}
 .photos-row div{width:54px;height:54px;border-radius:4px;background:var(--steel);border:1px dashed var(--ash);display:grid;place-items:center;color:var(--dust);font-size:20px}
-.photos-row div.p{border-style:solid;background:repeating-linear-gradient(45deg,#2c2c29 0 5px,#252523 5px 10px)}
+.photos-row img{width:54px;height:54px;border-radius:4px;object-fit:cover;display:block}
+
+/* Photo section */
+.ph-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:14px}
+@media (max-width:720px){.ph-grid{grid-template-columns:1fr 1fr}.ph-grid figure:first-child{grid-column:1/-1}}
+.ph-grid figure{margin:0;display:grid;gap:8px;align-content:start;min-width:0}
+.ph-grid img{width:100%;max-width:100%;height:340px;object-fit:cover;border-radius:4px;display:block;filter:contrast(1.08)}
+@media (max-width:720px){.ph-grid img{height:220px}}
+.ph-grid figcaption{font-size:13px;color:var(--dust);display:grid;gap:2px}
+.ph-grid figcaption b{font-family:var(--label);text-transform:uppercase;letter-spacing:.08em;color:var(--chalk);font-size:14px}
 
 /* Parts */
 .parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
@@ -262,7 +271,7 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
           <div class="recenter"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg></div>
           <div class="attrib">© OpenStreetMap contributors</div>
           <div class="sheet">
-            <div class="thumb"><svg viewBox="0 0 24 17"><use href="#anvil"/></svg></div>
+            <img class="thumb" src="photos/premier-sled.jpg" alt="Lifter loading a 45 lb plate onto a sled at Premier Fitness">
             <div style="min-width:0">
               <div class="nm">PREMIER FITNESS</div>
               <div class="meta">Appleton · <span class="open">Open 24/7</span> · 1.2 mi</div>
@@ -281,7 +290,7 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
           <div class="status"><span>5:13</span><i>●●● ▮</i></div>
           <div class="scroll">
             <div class="photo">
-              <div class="ph"><svg viewBox="0 0 24 17"><use href="#anvil"/></svg></div>
+              <img class="ph" src="photos/premier-sled.jpg" alt="Sled push setup on the turf at Premier Fitness">
               <div class="back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></div>
               <div class="back save"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg></div>
               <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
@@ -298,6 +307,10 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
                 <div class="act"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg>Text</div>
                 <div class="act"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Website</div>
                 <div class="act"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/></svg>Insta</div>
+              </div>
+              <div class="dsec">
+                <h4>Photos · 3</h4>
+                <div class="strip"><img src="photos/premier-barbell.jpg" alt="Loading a bumper plate"><img src="photos/premier-sauna.jpg" alt="Infrared saunas"><img src="photos/premier-sled.jpg" alt="Sled on the turf" style="object-position:40% 70%"></div>
               </div>
               <div class="take">
                 <div class="who">Paul's take</div>
@@ -323,7 +336,7 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
           </div>
           <div class="cta"><svg viewBox="0 0 24 17"><use href="#anvil"/></svg>RATE THIS GYM</div>
         </div></div>
-        <p>Gym page: Paul's take up top in his handwriting, then the anvil breakdown and the counter specials.</p>
+        <p>Gym page: a real photo up top, a photo strip, then Paul's take in his handwriting and the anvil breakdown.</p>
       </div>
 
       <!-- 3. Review -->
@@ -340,7 +353,7 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
             </div>
             <div id="rcats" style="display:grid;gap:12px"></div>
             <div class="field">Real deal. Got a full pull session in at 4:30 before the job site<span class="cursor"></span></div>
-            <div class="photos-row"><div class="p"></div><div class="p"></div><div>+</div></div>
+            <div class="photos-row"><img src="photos/premier-barbell.jpg" alt="Your photo: loading a plate"><img src="photos/premier-sauna.jpg" alt="Your photo: the saunas"><div>+</div></div>
           </div>
           <div class="cta">POST REVIEW</div>
         </div></div>
@@ -348,6 +361,21 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
       </div>
 
     </div>
+  </section>
+
+  <!-- PHOTOS -->
+  <section aria-labelledby="ph-h">
+    <div class="sec-head">
+      <div class="eyebrow">Photography</div>
+      <h2 id="ph-h">Shot in black and white</h2>
+      <p class="lede">Gym photos run in black and white with hard contrast, so every gym looks like it belongs to the same brand, whatever the lighting was. Show the iron and the work, close up, more than wide shots of empty rooms.</p>
+    </div>
+    <div class="ph-grid">
+      <figure><img src="photos/premier-sled.jpg" alt="Lifter loading a 45 lb Troy plate onto a sled on turf"><figcaption><b>Lead photo</b>The work, mid-rep. Sleds, tires and plates beat a lobby shot.</figcaption></figure>
+      <figure><img src="photos/premier-barbell.jpg" alt="Hands loading a bumper plate onto a barbell"><figcaption><b>Equipment detail</b>Close on the gear so lifters can judge the bars and plates.</figcaption></figure>
+      <figure><img src="photos/premier-sauna.jpg" alt="Two infrared sauna doors"><figcaption><b>Amenities</b>Showers, saunas and locker rooms get one photo each.</figcaption></figure>
+    </div>
+    <p class="note">Photos: Premier Fitness of Appleton (premierfitnessofappleton.com), used here for the mockup only. For the app, Paul should use his own photos or get the gym's OK.</p>
   </section>
 
   <!-- PARTS -->
@@ -393,6 +421,7 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
   <footer>
     <span>Map data © OpenStreetMap contributors, drawn in grayscale for this mockup. The marker sits at the geocoded address on W Nordale Dr, so its exact spot on the lot is approximate.</span>
     <span>Gym facts (24/7, address, shakes, wraps, equipment brands) come from premierfitnessofappleton.com. Anvil scores, distances and review text are samples until Paul rates the gym.</span>
+    <span>Photos come from premierfitnessofappleton.com and are used for this mockup only.</span>
   </footer>
 </div>
 
