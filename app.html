@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Test the app · Via Ardua</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@600;700&family=Black+Ops+One&display=swap" rel="stylesheet">
+<style>
+:root{--iron:#121211;--plate:#1b1b19;--edge:#3b3a36;--chalk:#efece4;--dust:#a8a49a;--ash:#6f6c65;--rust:#c4552d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--iron);color:var(--chalk);font-family:"Barlow",system-ui,sans-serif;font-size:17px;line-height:1.55}
+main{max-width:34rem;margin:0 auto;padding:40px 20px 64px}
+h1{font-family:"Black Ops One","Impact",sans-serif;font-weight:400;font-size:clamp(34px,9vw,48px);line-height:1;margin:0 0 8px}
+p{color:var(--dust);margin:0 0 12px}
+ol{list-style:none;padding:0;margin:28px 0 0;counter-reset:step}
+li{counter-increment:step;background:var(--plate);border:1px solid var(--edge);border-radius:8px;padding:18px;margin-bottom:14px}
+li h2{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:20px;margin:0 0 6px}
+li h2::before{content:counter(step) ". ";color:var(--rust)}
+.btn{display:block;text-align:center;text-decoration:none;font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:20px;padding:15px 16px;border-radius:6px;margin-top:12px}
+.primary{background:var(--rust);color:var(--chalk)}
+.secondary{border:1px solid var(--edge);color:var(--chalk)}
+.note{color:var(--ash);font-size:15px;margin-top:24px}
+.note a{color:var(--dust)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Via Ardua</h1>
+  <p>Test version of the gym finder. Open this page on your iPhone and do the two steps in order.</p>
+  <ol>
+    <li>
+      <h2>Get Expo Go</h2>
+      <p>A free app from the App Store that runs test versions of apps. You only install it once.</p>
+      <a class="btn secondary" href="https://apps.apple.com/us/app/expo-go/id982107779">Get Expo Go</a>
+    </li>
+    <li>
+      <h2>Open the app</h2>
+      <p>Come back to this page and tap the button. If the phone asks whether to open it in Expo Go, tap Open.</p>
+      <a class="btn primary" href="exp://u.expo.dev/b5da1712-41ee-4541-90a7-13dc27928cd2?runtime-version=exposdk%3A54.0.0&amp;channel-name=preview">Open Via Ardua</a>
+    </li>
+  </ol>
+  <p class="note">Nothing happens when you tap the button? Expo Go isn't installed yet; do step 1 first. Or skip the install and use the <a href="https://viaardua.expo.app">browser version</a>.</p>
+</main>
+</body>
+</html>
