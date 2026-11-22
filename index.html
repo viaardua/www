@@ -1,5 +1,35 @@
-<!doctype html><html><head><meta charset=utf8><meta name="robots" content="noindex,nofollow"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chalk &amp; Iron</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+.answers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.ans{background:var(--plate);border:1px solid var(--edge);border-radius:12px;padding:20px;display:grid;gap:10px;align-content:start}
+.ans .q{font-family:var(--label);text-transform:uppercase;letter-spacing:.12em;font-size:13px;color:var(--dust);font-weight:600}
+.ans h3{font-size:22px}
+.ans p{color:var(--dust);font-size:14px}
+.ans a{color:var(--temper);font-weight:600;font-size:14px}
+.dots{display:flex;gap:6px}.dots i{width:22px;height:22px;border-radius:6px;display:block}
+.fg-row{display:flex;flex-wrap:wrap;gap:28px;justify-content:center}
+.fg-col{display:grid;gap:10px;justify-items:center;width:312px;max-width:100%}
+.fg-col p{color:var(--dust);font-size:14px;text-align:center}
+.fg-frame{width:312px;height:675px;border-radius:40px;overflow:hidden;border:8px solid #050505;box-shadow:0 30px 60px -30px rgba(0,0,0,.8);box-sizing:content-box;background:#121211}
+.fg-scale{width:390px;height:844px;transform:scale(.8);transform-origin:0 0}
+.fg-scale a{color:inherit}
+.fg-scale p{margin:0}
+.names{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.nm{background:var(--plate);border:1px solid var(--edge);border-radius:12px;padding:18px;display:grid;gap:6px;align-content:start}
+.nm.top{border-color:var(--forge)}
+.nm b{font-family:"Archivo",sans-serif;font-stretch:75%;font-weight:800;font-size:28px;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+.nm span{color:var(--dust);font-size:14px}
+.nm em{font-style:normal;font-family:var(--label);text-transform:uppercase;letter-spacing:.12em;font-size:11px;color:var(--forge)}
+@media (max-width:360px){.fg-frame{transform:scale(.9);transform-origin:top center}}
+</style>
+
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Permanent+Marker&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -14,7 +44,9 @@
   --chalk:#efece4;     /* primary ink, filled anvils */
   --dust:#a8a49a;      /* secondary ink */
   --ash:#6f6c65;       /* empty anvils, muted */
-  --rust:#c4552d;      /* stamp ink, one accent used sparingly */
+  --forge:#ff6a2b;     /* action: energy and urgency, only on things you tap to act */
+  --temper:#4fa3e0;    /* trust: verified facts, Paul's pick, hours and contact */
+  --heat:#f2b84b;      /* social: warmth, people and conversation */
   --go:#8fbf7a;        /* open now (semantic) */
   --display:"Black Ops One","Impact",sans-serif;
   --label:"Barlow Condensed","Arial Narrow",sans-serif;
@@ -64,7 +96,7 @@ section{display:grid;gap:22px}
 .cat{display:grid;grid-template-columns:118px 1fr auto;gap:10px;align-items:center;font-size:14px}
 .cat .k{font-family:var(--label);text-transform:uppercase;letter-spacing:.05em;color:var(--dust);font-weight:600}
 .cat .v{font-family:var(--mono);font-size:12px;color:var(--dust);font-variant-numeric:tabular-nums}
-.stamp{display:inline-grid;place-items:center;text-align:center;border:3px double var(--rust);color:var(--rust);font-family:var(--display);font-size:13px;letter-spacing:.06em;line-height:1.05;padding:8px 12px;transform:rotate(-6deg);border-radius:4px;text-transform:uppercase}
+.stamp{display:inline-grid;place-items:center;text-align:center;border:3px double var(--forge);color:var(--forge);font-family:var(--display);font-size:13px;letter-spacing:.06em;line-height:1.05;padding:8px 12px;transform:rotate(-6deg);border-radius:4px;text-transform:uppercase}
 .stamp small{font-family:var(--label);font-size:10px;letter-spacing:.2em}
 .note{font-size:13px;color:var(--ash)}
 
@@ -84,7 +116,7 @@ section{display:grid;gap:22px}
 .search{display:flex;align-items:center;gap:8px;background:rgba(27,27,25,.94);border:1px solid var(--edge);border-radius:6px;padding:10px 12px;color:var(--dust)}
 .search svg{width:16px;height:16px;flex:none;stroke:var(--dust);fill:none;stroke-width:2}
 .search .f{margin-left:auto;font-family:var(--label);text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--chalk);border-left:1px solid var(--edge);padding-left:10px;display:flex;gap:6px;align-items:center}
-.search .f b{background:var(--chalk);color:var(--iron);border-radius:3px;padding:0 5px;font-size:11px}
+.search .f b{background:var(--forge);color:var(--iron);border-radius:3px;padding:0 5px;font-size:11px}
 .chips{display:flex;gap:6px;overflow:hidden}
 .chip{flex:none;font-family:var(--label);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:4px 9px;border:1px solid var(--edge);border-radius:3px;background:rgba(27,27,25,.92);color:var(--dust)}
 .chip.on{background:var(--chalk);color:var(--iron);border-color:var(--chalk)}
@@ -102,7 +134,7 @@ section{display:grid;gap:22px}
 .recenter svg{width:18px;stroke:var(--chalk);fill:none;stroke-width:2}
 .tabbar{position:absolute;left:0;right:0;bottom:0;height:74px;z-index:3;background:#0f0f0e;border-top:1px solid var(--edge);display:grid;grid-template-columns:repeat(4,1fr);padding-top:9px}
 .tabbar div{display:grid;justify-items:center;gap:3px;font-family:var(--label);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ash)}
-.tabbar div.on{color:var(--chalk)}
+.tabbar div.on{color:var(--forge)}
 .tabbar svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8}
 .attrib{position:absolute;left:12px;bottom:80px;z-index:1;font-size:8px;color:var(--ash);font-family:var(--mono)}
 
@@ -121,11 +153,11 @@ section{display:grid;gap:22px}
 .d-head .nm{font-family:var(--display);font-size:25px;line-height:1;letter-spacing:.02em}
 .d-head .meta{color:var(--dust);font-size:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .open{color:var(--go);font-weight:600}
-.badge{display:inline-flex;gap:5px;align-items:center;font-family:var(--label);font-size:11px;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--chalk);padding:1px 6px;border-radius:2px}
-.badge svg{width:13px;fill:var(--chalk)}
+.badge{display:inline-flex;gap:5px;align-items:center;font-family:var(--label);font-size:11px;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--temper);color:var(--temper);padding:1px 6px;border-radius:2px}
+.badge svg{width:13px;fill:var(--temper)}
 .actions{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
 .act{display:grid;justify-items:center;gap:3px;padding:8px 0;background:var(--steel);border-radius:4px;font-family:var(--label);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--chalk)}
-.act svg{width:18px;height:18px;stroke:var(--chalk);fill:none;stroke-width:1.8}
+.act svg{width:18px;height:18px;stroke:var(--temper);fill:none;stroke-width:1.8}
 .take{background:var(--steel);border-radius:4px;padding:12px;display:grid;gap:8px;position:relative;border-left:0}
 .take .who{font-family:var(--hand);font-size:15px;color:var(--chalk);transform:rotate(-1.5deg);transform-origin:left}
 .take ul{margin:0;padding:0;list-style:none;display:grid;gap:3px;font-size:12px}
@@ -139,7 +171,7 @@ section{display:grid;gap:22px}
 .specials{display:grid;gap:4px;font-size:12px}
 .specials div{display:flex;justify-content:space-between;gap:8px;color:var(--dust)}
 .specials b{color:var(--chalk);font-weight:500}
-.cta{position:absolute;left:12px;right:12px;bottom:18px;z-index:3;background:var(--chalk);color:var(--iron);border-radius:6px;padding:13px;text-align:center;font-family:var(--display);font-size:15px;letter-spacing:.06em;display:flex;gap:8px;justify-content:center;align-items:center}
+.cta{position:absolute;left:12px;right:12px;bottom:18px;z-index:3;background:var(--forge);color:var(--iron);border-radius:6px;padding:13px;text-align:center;font-family:var(--display);font-size:15px;letter-spacing:.06em;display:flex;gap:8px;justify-content:center;align-items:center}
 .cta svg{width:20px;fill:var(--iron)}
 
 /* Review screen */
@@ -184,15 +216,30 @@ section{display:grid;gap:22px}
 .pins figcaption{font-size:12px;color:var(--dust);text-align:center;max-width:110px}
 .btns{display:flex;gap:10px;flex-wrap:wrap}
 .btn{font-family:var(--display);font-size:14px;letter-spacing:.05em;padding:10px 16px;border-radius:5px;border:0}
-.btn.p{background:var(--chalk);color:var(--iron)}
-.btn.s{background:transparent;color:var(--chalk);border:1px solid var(--chalk)}
+.btn.p{background:var(--forge);color:var(--iron)}
+.btn.s{background:transparent;color:var(--temper);border:1px solid var(--temper)}
 .btn.g{background:var(--steel);color:var(--chalk)}
 .voice{display:grid;gap:10px}
 .voice div{display:grid;grid-template-columns:110px 1fr;gap:10px;font-size:14px}
 .voice div span:first-child{font-family:var(--label);text-transform:uppercase;letter-spacing:.06em;color:var(--dust)}
+/* Color jobs and social panel */
+.jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.job{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
+.job i{width:44px;height:44px;border-radius:6px;display:block}
+.job b{font-family:var(--label);text-transform:uppercase;letter-spacing:.06em;font-size:16px;display:block}
+.job span{font-size:13px;color:var(--dust)}
+.job code{font-family:var(--mono);font-size:11px;color:var(--ash)}
+.soc-tags{display:flex;flex-wrap:wrap;gap:6px}
+.st{font-family:var(--label);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:3px;border:1px solid var(--heat);color:var(--heat)}
+.st.dim{border-color:var(--edge);color:var(--dust)}
+.cat.soc .k,.rcat.soc .k{color:var(--heat)}
+.soc .anv .fill svg{fill:var(--heat)}
+.dcat.soc span:first-child{color:var(--heat)}
 footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding-top:18px;display:grid;gap:6px;max-width:80ch}
 </style>
 
+</head>
+<body style="margin:0">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="anvil" viewBox="0 0 24 17"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></symbol>
@@ -209,12 +256,237 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
   <header class="hero">
     <div class="mark" aria-hidden="true"><svg viewBox="0 0 24 17"><use href="#anvil"/></svg></div>
     <div style="display:grid;gap:10px">
-      <div class="eyebrow">Theme direction 2 · fleshed out</div>
+      <div class="eyebrow">Updated after your feedback · Nov 22</div>
       <h1>VIA ARDUA</h1>
       <div class="tag">Gyms for the hard way · Wisconsin</div>
-      <p class="lede">Chalk &amp; Iron treats the app like the basement gym Paul and his crew go looking for: cast-iron black, chalk-white type, stamped steel, and nothing shiny. Ratings are anvils, because a good gym is where you get hammered into shape.</p>
+      <p class="lede">Chalk &amp; Iron treats the app like the basement gym Paul and his crew go looking for: cast-iron black, chalk-white type, stamped steel, and nothing shiny. Three working colors cut through the black: forge orange for anything you tap to act, tempered blue for facts you can trust, and warm amber for the people side of a gym. Ratings are anvils, because a good gym is where you get hammered into shape.</p>
     </div>
   </header>
+
+
+  <!-- ANSWERS -->
+  <section aria-labelledby="ans-h" id="answers">
+    <div class="sec-head">
+      <div class="eyebrow">Your three questions</div>
+      <h2 id="ans-h">Color, a name, and a social score</h2>
+      <p class="lede">Paul, you liked the format and asked three things. Here is where each one landed. Everything below is the same Chalk &amp; Iron look, now with working color and a modern app layout.</p>
+    </div>
+    <div class="answers">
+      <div class="ans"><div class="q">Would color help?</div><h3>Yes. Each color gets one job.</h3>
+        <div class="dots"><i style="background:var(--forge)"></i><i style="background:var(--temper)"></i><i style="background:var(--heat)"></i><i style="background:var(--go)"></i></div>
+        <p>Forge orange is for anything you tap to act. Tempered blue marks facts you can trust, like hours and your picks. Amber is only for the social side. Green means open now. One color, one meaning, everywhere.</p><a href="#colors">See the color jobs</a></div>
+      <div class="ans"><div class="q">A more all-encompassing name?</div><h3>Four names that work for everyone.</h3>
+        <p>Keep Via Ardua as your brand. Name the app something that welcomes women and men alike, in the spirit of CrossFit and HYROX.</p><a href="#names">See the shortlist</a></div>
+      <div class="ans"><div class="q">A social environment rating?</div><h3>Yes. It's its own score.</h3>
+        <p>"Can you meet people and actually talk here?" Rated in amber anvils, with crowd tags like Mixed crowd and Regulars say hi, and a Social filter on the map.</p><a href="#social">See how it works</a></div>
+    </div>
+  </section>
+
+  <!-- FORGED -->
+  <section aria-labelledby="fg-h" id="forged">
+    <div class="sec-head">
+      <div class="eyebrow">The app, modernized</div>
+      <h2 id="fg-h">Forged: Chalk &amp; Iron on a modern iPhone layout</h2>
+      <p class="lede">Same iron, anvils and black-and-white photos, on a current iOS layout: a full-screen map with a swipe-up list, rounded cards and clean type. The social score and color jobs are built in.</p>
+    </div>
+    <div class="fg-row"><div class="fg-col"><div class="fg-frame"><div class="fg-scale"><div style="width: 390px; height: 844px; box-sizing: border-box; background: #121211; color: #efece4; font-family: Inter, system-ui, sans-serif; position: relative; overflow: hidden;">
+  <svg aria-hidden="true" width="390" height="844" viewBox="0 0 390 844" style="position: absolute; inset: 0;">
+    <rect width="390" height="844" fill="#1b1b19"/>
+    <path d="M280 0C270 110 320 200 390 230V0z" fill="#161a1d"/>
+    <path d="M0 290H390M140 0V844M0 500L390 430M270 844L330 0" stroke="#2c2c29" stroke-width="12" fill="none"/>
+    <path d="M0 170H390M60 0V844M215 0V844M0 620H390" stroke="#242421" stroke-width="5" fill="none"/>
+    <g fill="#222220"><rect x="160" y="190" width="40" height="30"/><rect x="230" y="320" width="30" height="40"/><rect x="80" y="330" width="34" height="26"/></g>
+  </svg>
+
+  <div style="position: absolute; top: 56px; left: 16px; right: 16px; display: flex; flex-direction: column; gap: 10px;">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <span style="display: flex; align-items: center; gap: 8px; font-family: Archivo, sans-serif; font-stretch: 75%; font-weight: 800; font-size: 22px; letter-spacing: 0.04em; text-transform: uppercase;">
+        <svg aria-hidden="true" width="26" height="18" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>Via Ardua</span>
+      <button type="button" aria-label="Profile" style="all: unset; width: 44px; height: 44px; border-radius: 22px; background: #262623; display: grid; place-items: center; font-weight: 700; font-size: 14px;">JC</button>
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <label style="flex: 1; height: 50px; border-radius: 16px; background: rgba(27,27,25,.95); box-shadow: inset 0 0 0 1px #3b3a36, 0 8px 24px rgba(0,0,0,.35); display: flex; align-items: center; gap: 10px; padding: 0 16px;">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a8a49a" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="text" placeholder="Where's the job this week?" style="all: unset; flex: 1; font-size: 15px; color: #efece4;">
+      </label>
+      <button type="button" aria-label="Filters, 2 on" style="all: unset; width: 50px; height: 50px; border-radius: 16px; background: rgba(27,27,25,.95); box-shadow: inset 0 0 0 1px #3b3a36; display: grid; place-items: center; position: relative;">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#efece4" stroke-width="2" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+        <span style="position: absolute; top: 7px; right: 7px; width: 16px; height: 16px; border-radius: 8px; background: #ff6a2b; color: #121211; font-size: 10px; font-weight: 800; display: grid; place-items: center;">2</span>
+      </button>
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <button type="button" style="all: unset; height: 32px; padding: 0 12px; border-radius: 10px; background: #efece4; color: #121211; font-size: 13px; font-weight: 700; display: flex; align-items: center;">Open now</button>
+      <button type="button" style="all: unset; height: 32px; padding: 0 12px; border-radius: 10px; background: rgba(27,27,25,.95); color: #f2b84b; font-size: 13px; font-weight: 700; display: flex; align-items: center; box-shadow: inset 0 0 0 1px #6b5524;">Social 4+</button>
+      <button type="button" style="all: unset; height: 32px; padding: 0 12px; border-radius: 10px; background: rgba(27,27,25,.95); color: #d8d4ca; font-size: 13px; font-weight: 600; display: flex; align-items: center; box-shadow: inset 0 0 0 1px #3b3a36;">Sleds</button>
+      <button type="button" style="all: unset; height: 32px; padding: 0 12px; border-radius: 10px; background: rgba(27,27,25,.95); color: #d8d4ca; font-size: 13px; font-weight: 600; display: flex; align-items: center; box-shadow: inset 0 0 0 1px #3b3a36;">Kettlebells</button>
+    </div>
+  </div>
+
+  <div style="position: absolute; left: 186px; top: 262px; display: flex; flex-direction: column; align-items: center;">
+    <div style="width: 46px; height: 46px; border-radius: 23px; background: #ff6a2b; border: 3px solid #121211; display: grid; place-items: center; box-shadow: 0 0 0 6px rgba(255,106,43,.2);">
+      <svg aria-hidden="true" width="24" height="17" viewBox="0 0 24 17" fill="#121211"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>
+    </div>
+  </div>
+  <div style="position: absolute; left: 44px; top: 206px; height: 28px; padding: 0 9px; border-radius: 14px; background: #262623; box-shadow: inset 0 0 0 1.5px #ff6a2b; display: flex; align-items: center; font-weight: 700; font-size: 12px;">4.0</div>
+  <div style="position: absolute; left: 292px; top: 392px; height: 28px; padding: 0 9px; border-radius: 14px; background: #262623; box-shadow: inset 0 0 0 1.5px #6f6c65; display: flex; align-items: center; font-weight: 700; font-size: 12px; color: #a8a49a;">3.5</div>
+  <div style="position: absolute; left: 132px; top: 352px; width: 16px; height: 16px; border-radius: 8px; background: #4fa3e0; border: 3px solid #121211; box-shadow: 0 0 0 9px rgba(79,163,224,.2);"></div>
+
+  <div style="position: absolute; left: 0; right: 0; top: 448px; bottom: 84px; background: #121211; border-radius: 28px 28px 0 0; box-shadow: 0 -10px 30px rgba(0,0,0,.4); padding: 10px 16px 0; display: flex; flex-direction: column; gap: 12px;">
+    <span style="align-self: center; width: 40px; height: 5px; border-radius: 3px; background: #3b3a36;"></span>
+    <div style="display: flex; align-items: baseline; justify-content: space-between;">
+      <h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 75%; font-weight: 800; font-size: 24px; letter-spacing: 0.02em; text-transform: uppercase;">Iron near Appleton</h1>
+      <span style="font-size: 13px; color: #a8a49a;">3 gyms</span>
+    </div>
+    <a href="#forged" style="display: flex; gap: 12px; padding: 10px; border-radius: 20px; background: #1b1b19; box-shadow: inset 0 0 0 1px #2e2d2a; color: #efece4; text-decoration: none;">
+      <img src="photos/premier-sled.jpg" alt="Sled loaded with plates on turf" style="width: 92px; height: 104px; border-radius: 14px; object-fit: cover; filter: grayscale(1) contrast(1.12);">
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 6px;">
+          <span style="font-family: Archivo, sans-serif; font-stretch: 80%; font-weight: 800; font-size: 18px; text-transform: uppercase; letter-spacing: 0.02em;">Premier Fitness</span>
+          <span style="font-size: 10px; font-weight: 700; color: #4fa3e0; box-shadow: inset 0 0 0 1px #4fa3e0; padding: 2px 6px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.06em;">Paul's pick</span>
+        </div>
+        <span style="font-size: 13px; color: #a8a49a;">1.2 mi · <span style="color: #8fbf7a; font-weight: 600;">Open 24/7</span></span>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="display: flex; gap: 2px;">
+            <svg aria-hidden="true" width="18" height="13" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>
+            <svg aria-hidden="true" width="18" height="13" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>
+            <svg aria-hidden="true" width="18" height="13" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>
+            <svg aria-hidden="true" width="18" height="13" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>
+            <svg aria-hidden="true" width="18" height="13" viewBox="0 0 24 17" fill="#6f6c65"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>
+          </span>
+          <span style="font-size: 13px; font-weight: 700;">4.5</span>
+        </div>
+        <div style="display: flex; gap: 6px;">
+          <span style="font-size: 11px; font-weight: 700; color: #f2b84b; background: #2a2416; padding: 3px 8px; border-radius: 6px;">Social 4.0</span>
+          <span style="font-size: 11px; font-weight: 600; color: #d8d4ca; background: #262623; padding: 3px 8px; border-radius: 6px;">Turf</span>
+          <span style="font-size: 11px; font-weight: 600; color: #d8d4ca; background: #262623; padding: 3px 8px; border-radius: 6px;">Platforms</span>
+        </div>
+      </div>
+    </a>
+    <a href="#forged" style="display: flex; gap: 12px; align-items: center; padding: 10px; border-radius: 20px; background: #1b1b19; box-shadow: inset 0 0 0 1px #2e2d2a; color: #efece4; text-decoration: none;">
+      <div style="width: 56px; height: 56px; border-radius: 12px; background: #262623; display: grid; place-items: center; font-size: 9px; color: #a8a49a;">[PHOTO]</div>
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 2px;">
+        <span style="font-family: Archivo, sans-serif; font-stretch: 80%; font-weight: 800; font-size: 16px; text-transform: uppercase;">[Gym 2 from Paul's list]</span>
+        <span style="font-size: 13px; color: #a8a49a;">3.4 mi · <span style="color: #8fbf7a; font-weight: 600;">Open till 10 PM</span></span>
+      </div>
+      <span style="font-weight: 700;">4.0</span>
+    </a>
+  </div>
+
+  <nav aria-label="Tabs" style="position: absolute; left: 0; right: 0; bottom: 0; height: 84px; background: #0f0f0e; border-top: 1px solid #2e2d2a; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding-top: 8px; box-sizing: border-box;">
+    <a href="#forged" style="display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; color: #ff6a2b; text-decoration: none;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-12a7 7 0 0114 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Find</a>
+    <a href="#forged" style="display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 11px; font-weight: 600; color: #8f8b82; text-decoration: none;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10.5 9.5l4 2.5-4 2.5z"/></svg>Via Ardua</a>
+    <a href="#forged" style="display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 11px; font-weight: 600; color: #8f8b82; text-decoration: none;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Racked</a>
+    <a href="#forged" style="display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 11px; font-weight: 600; color: #8f8b82; text-decoration: none;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Profile</a>
+  </nav>
+</div></div></div><p>Find: full-screen map, Paul's gyms in forge orange, a swipe-up list.</p></div><div class="fg-col"><div class="fg-frame"><div class="fg-scale"><div style="width: 390px; height: 844px; box-sizing: border-box; background: #121211; color: #efece4; font-family: Inter, system-ui, sans-serif; position: relative; overflow: hidden;">
+  <img src="photos/premier-sled.jpg" alt="Lifter loading a plate onto a sled at Premier Fitness" style="width: 390px; height: 300px; object-fit: cover; display: block; filter: grayscale(1) contrast(1.15) brightness(.85);">
+  <a href="#forged" aria-label="Back" style="position: absolute; top: 56px; left: 16px; width: 44px; height: 44px; border-radius: 22px; background: rgba(18,18,17,.8); display: grid; place-items: center;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#efece4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></a>
+  <button type="button" aria-label="Rack it (save)" style="all: unset; position: absolute; top: 56px; right: 16px; width: 44px; height: 44px; border-radius: 22px; background: rgba(18,18,17,.8); display: grid; place-items: center;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#efece4" stroke-width="2.2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button>
+  <div style="position: absolute; top: 214px; right: 18px; transform: rotate(-6deg); border: 3px double #ff6a2b; color: #ff6a2b; border-radius: 8px; padding: 6px 10px; font-family: Archivo, sans-serif; font-stretch: 75%; font-weight: 800; font-size: 12px; line-height: 1.05; text-align: center; text-transform: uppercase; letter-spacing: 0.06em; background: rgba(18,18,17,.75);">Heavy Iron<br>Certified</div>
+
+  <div style="position: absolute; top: 280px; left: 0; right: 0; bottom: 0; background: #121211; border-radius: 26px 26px 0 0; padding: 20px 18px 110px; display: flex; flex-direction: column; gap: 16px;">
+    <div style="display: flex; flex-direction: column; gap: 5px;">
+      <span style="align-self: flex-start; font-size: 11px; font-weight: 700; color: #4fa3e0; box-shadow: inset 0 0 0 1px #4fa3e0; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.08em;">Paul's pick · hours verified</span>
+      <h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 75%; font-weight: 800; font-size: 32px; line-height: 1; letter-spacing: 0.01em; text-transform: uppercase;">Premier Fitness</h1>
+      <span style="font-size: 14px; color: #a8a49a;">Appleton · 1.2 mi · <span style="color: #8fbf7a; font-weight: 600;">Open 24/7</span></span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 8px;">
+      <div style="padding: 12px; border-radius: 16px; background: #1b1b19; box-shadow: inset 0 0 0 1px #2e2d2a; display: flex; flex-direction: column; gap: 4px;">
+        <span style="font-family: Archivo, sans-serif; font-stretch: 75%; font-weight: 800; font-size: 28px; line-height: 1;">4.5</span>
+        <span style="display: flex; gap: 2px;">
+          <svg aria-hidden="true" width="14" height="10" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>
+          <svg aria-hidden="true" width="14" height="10" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>
+          <svg aria-hidden="true" width="14" height="10" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>
+          <svg aria-hidden="true" width="14" height="10" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>
+          <svg aria-hidden="true" width="14" height="10" viewBox="0 0 24 17" fill="#6f6c65"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>
+        </span>
+        <span style="font-size: 11px; color: #a8a49a;">Forged · 3 reviews</span>
+      </div>
+      <div style="padding: 12px; border-radius: 16px; background: #1b1b19; box-shadow: inset 0 0 0 1px #2e2d2a; display: flex; flex-direction: column; gap: 4px;">
+        <span style="font-family: Archivo, sans-serif; font-stretch: 75%; font-weight: 800; font-size: 28px; line-height: 1;">5.0</span>
+        <span style="font-size: 11px; color: #a8a49a;">Equipment</span>
+      </div>
+      <div style="padding: 12px; border-radius: 16px; background: #2a2416; box-shadow: inset 0 0 0 1px #6b5524; display: flex; flex-direction: column; gap: 4px;">
+        <span style="font-family: Archivo, sans-serif; font-stretch: 75%; font-weight: 800; font-size: 28px; line-height: 1; color: #f2b84b;">4.0</span>
+        <span style="font-size: 11px; color: #f2b84b;">Social</span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px;">
+      <a href="#forged" style="height: 56px; border-radius: 14px; background: #1b1b19; box-shadow: inset 0 0 0 1px #2e2d2a; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 12px; font-weight: 600; color: #4fa3e0; text-decoration: none;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4fa3e0" stroke-width="2.2" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg>Directions</a>
+      <a href="#forged" style="height: 56px; border-radius: 14px; background: #1b1b19; box-shadow: inset 0 0 0 1px #2e2d2a; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 12px; font-weight: 600; color: #4fa3e0; text-decoration: none;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4fa3e0" stroke-width="2.2" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/></svg>Text</a>
+      <a href="#forged" style="height: 56px; border-radius: 14px; background: #1b1b19; box-shadow: inset 0 0 0 1px #2e2d2a; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 12px; font-weight: 600; color: #4fa3e0; text-decoration: none;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4fa3e0" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>Website</a>
+    </div>
+
+    <div style="padding: 14px 16px; border-radius: 18px; background: #1b1b19; box-shadow: inset 0 0 0 1px #2e2d2a; display: flex; flex-direction: column; gap: 6px;">
+      <span style="font-family: 'Permanent Marker', cursive; font-size: 17px; transform: rotate(-1.5deg); transform-origin: left;">Paul's take</span>
+      <span style="font-size: 14px; line-height: 1.45; color: #d8d4ca;">[Paul's review in his words. Sample: open around the clock, so it fits any shift, and the turf has room for sled pushes.]</span>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      <span style="font-size: 12px; font-weight: 700; color: #f2b84b; background: #2a2416; padding: 5px 10px; border-radius: 8px;">Mixed crowd</span>
+      <span style="font-size: 12px; font-weight: 700; color: #f2b84b; background: #2a2416; padding: 5px 10px; border-radius: 8px;">Regulars say hi</span>
+      <span style="font-size: 12px; font-weight: 600; color: #d8d4ca; background: #262623; padding: 5px 10px; border-radius: 8px;">Shakes &amp; wraps</span>
+    </div>
+  </div>
+
+  <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 18px 30px; background: #121211; border-top: 1px solid #2e2d2a; display: flex; gap: 12px; align-items: center;">
+    <div style="display: flex; flex-direction: column;">
+      <span style="font-size: 12px; color: #a8a49a;">Day pass</span>
+      <span style="font-weight: 700; font-size: 17px;">[$ price]</span>
+    </div>
+    <a href="#forged" style="flex: 1; height: 54px; border-radius: 16px; background: #ff6a2b; color: #121211; font-family: Archivo, sans-serif; font-stretch: 80%; font-weight: 800; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;"><svg aria-hidden="true" width="20" height="14" viewBox="0 0 24 17" fill="#121211"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg>Rate this gym</a>
+  </div>
+</div></div></div><p>Gym page: anvil score, Social in amber, trusted info in blue, Paul's take.</p></div><div class="fg-col"><div class="fg-frame"><div class="fg-scale"><div style="width: 390px; height: 844px; box-sizing: border-box; background: #121211; color: #efece4; font-family: Inter, system-ui, sans-serif; position: relative; overflow: hidden; padding: 56px 18px 0; display: flex; flex-direction: column; gap: 16px;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <a href="#forged" style="font-size: 16px; color: #a8a49a; text-decoration: none; min-height: 44px; display: flex; align-items: center;">Cancel</a>
+    <span style="font-family: Archivo, sans-serif; font-stretch: 75%; font-weight: 800; font-size: 18px; text-transform: uppercase; letter-spacing: 0.04em;">Rate it</span>
+    <span style="width: 52px;"></span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 0 18px; border-bottom: 1px solid #2e2d2a;">
+    <span style="font-size: 13px; color: #a8a49a;">Premier Fitness · Overall</span>
+    <div style="display: flex; gap: 8px;">
+      <button type="button" aria-label="1 anvil" style="all: unset;"><svg aria-hidden="true" width="44" height="31" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg></button>
+      <button type="button" aria-label="2 anvils" style="all: unset;"><svg aria-hidden="true" width="44" height="31" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg></button>
+      <button type="button" aria-label="3 anvils" style="all: unset;"><svg aria-hidden="true" width="44" height="31" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg></button>
+      <button type="button" aria-label="4 anvils" style="all: unset;"><svg aria-hidden="true" width="44" height="31" viewBox="0 0 24 17" fill="#efece4"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg></button>
+      <button type="button" aria-label="5 anvils" style="all: unset;"><svg aria-hidden="true" width="44" height="31" viewBox="0 0 24 17" fill="#3b3a36"><path d="M7 1H23V5.5H21C19.6 5.5 18.4 6.6 18.4 8V10.5C18.4 11.6 19.5 12.6 21 13V16H4V13C5.5 12.6 6.6 11.6 6.6 10.5V8.4C6.6 7.4 6 6.6 5 6.3C3 5.8 1.5 4.4 0.5 2.2C2.5 1.4 4.6 1 7 1Z"/></svg></button>
+    </div>
+    <span style="font-family: Archivo, sans-serif; font-stretch: 75%; font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: 0.06em;">Solid iron</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 4px; border-radius: 18px; background: #1b1b19; box-shadow: inset 0 0 0 1px #2e2d2a; padding: 6px 14px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; min-height: 44px; border-bottom: 1px solid #262623;"><span style="font-size: 15px;">Equipment</span><span style="display: flex; gap: 4px;"><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span></span></div>
+    <div style="display: flex; justify-content: space-between; align-items: center; min-height: 44px; border-bottom: 1px solid #262623;"><span style="font-size: 15px;">Functional space</span><span style="display: flex; gap: 4px;"><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #3b3a36;"></span></span></div>
+    <div style="display: flex; justify-content: space-between; align-items: center; min-height: 44px; border-bottom: 1px solid #262623;"><span style="font-size: 15px;">Cleanliness</span><span style="display: flex; gap: 4px;"><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #efece4;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #3b3a36;"></span></span></div>
+    <div style="display: flex; flex-direction: column; gap: 2px; padding: 8px 0;">
+      <div style="display: flex; justify-content: space-between; align-items: center;"><span style="font-size: 15px; font-weight: 600; color: #f2b84b;">Social</span><span style="display: flex; gap: 4px;"><span style="width: 22px; height: 8px; border-radius: 4px; background: #f2b84b;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #f2b84b;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #f2b84b;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #f2b84b;"></span><span style="width: 22px; height: 8px; border-radius: 4px; background: #3b3a36;"></span></span></div>
+      <span style="font-size: 12px; color: #a8a49a;">Can you meet people and actually talk here?</span>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <span style="font-size: 13px; font-weight: 600; color: #a8a49a;">The crowd (pick any)</span>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      <button type="button" aria-pressed="true" style="all: unset; height: 34px; padding: 0 12px; border-radius: 10px; background: #f2b84b; color: #121211; font-size: 13px; font-weight: 700; display: flex; align-items: center;">Mixed crowd</button>
+      <button type="button" aria-pressed="true" style="all: unset; height: 34px; padding: 0 12px; border-radius: 10px; background: #f2b84b; color: #121211; font-size: 13px; font-weight: 700; display: flex; align-items: center;">Regulars say hi</button>
+      <button type="button" aria-pressed="false" style="all: unset; height: 34px; padding: 0 12px; border-radius: 10px; box-shadow: inset 0 0 0 1px #3b3a36; color: #d8d4ca; font-size: 13px; font-weight: 600; display: flex; align-items: center;">Group classes</button>
+      <button type="button" aria-pressed="false" style="all: unset; height: 34px; padding: 0 12px; border-radius: 10px; box-shadow: inset 0 0 0 1px #3b3a36; color: #d8d4ca; font-size: 13px; font-weight: 600; display: flex; align-items: center;">Headphones-in</button>
+    </div>
+  </div>
+
+  <label style="display: flex; flex-direction: column; gap: 6px;">
+    <span style="font-size: 13px; font-weight: 600; color: #a8a49a;">Your take</span>
+    <textarea placeholder="How was the iron? Anything the next crew should know?" style="all: unset; min-height: 64px; padding: 12px; border-radius: 14px; background: #1b1b19; box-shadow: inset 0 0 0 1px #2e2d2a; font-size: 14px; color: #efece4;"></textarea>
+  </label>
+
+  <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 12px 18px 30px; background: #121211;">
+    <button type="button" style="all: unset; box-sizing: border-box; width: 100%; height: 54px; border-radius: 16px; background: #ff6a2b; color: #121211; font-family: Archivo, sans-serif; font-stretch: 80%; font-weight: 800; font-size: 16px; letter-spacing: 0.04em; text-transform: uppercase; display: grid; place-items: center;">Post review</button>
+  </div>
+</div></div></div><p>Rate it: anvils for each category, Social with crowd tags, one orange button.</p></div></div>
+  </section>
 
   <!-- ANVILS -->
   <section aria-labelledby="anv-h">
@@ -239,8 +511,16 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
         <h3 style="margin-top:6px">Paul's seal</h3>
         <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
           <span class="stamp">Heavy Iron<br>Certified<small>Via Ardua</small></span>
-          <p class="note" style="max-width:24ch">Stamped on gyms Paul rates 4.5 anvils or higher for equipment. It's the only place the rust-red stamp ink appears.</p>
+          <p class="note" style="max-width:24ch">Stamped on gyms Paul rates 4.5 anvils or higher for equipment. Stamped in forge orange, the same color as the buttons that get you there.</p>
         </div>
+      </div>
+      <div class="panel">
+        <h3 style="color:var(--heat)" id="social">Social environment</h3>
+        <p style="color:var(--dust);font-size:14px">A gym's crowd matters as much as its iron. This score says whether it's a place you can actually meet people and talk, men and women both, or a headphones-in, nobody-talks room. Its anvils fill in amber so it stands apart from the training scores.</p>
+        <div class="scale" id="socscale"></div>
+        <h3 style="margin-top:4px">Crowd tags</h3>
+        <div class="soc-tags"><span class="st">Mixed crowd</span><span class="st">Regulars say hi</span><span class="st">Group classes</span><span class="st">Lounge or juice bar</span><span class="st">Events and meetups</span><span class="st dim">Headphones-in</span></div>
+        <p class="note">Reviewers pick any tags that fit. The Social filter on the map finds gyms rated 4 or higher here.</p>
       </div>
     </div>
   </section>
@@ -249,7 +529,7 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
   <section aria-labelledby="scr-h">
     <div class="sec-head">
       <div class="eyebrow">Key screens</div>
-      <h2 id="scr-h">Find, check it out, rate it</h2>
+      <h2 id="scr-h">The original Chalk &amp; Iron screens</h2>
       <p class="lede">The map is real: OpenStreetMap streets and buildings around Premier Fitness at 2408 W Nordale Dr in Grand Chute (Appleton), drawn in grayscale. In the app, the same style is applied to Apple Maps.</p>
     </div>
     <div class="phones">
@@ -265,7 +545,7 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
               <span>City or gym</span>
               <span class="f">Filters <b>2</b></span>
             </div>
-            <div class="chips"><span class="chip on">Open now</span><span class="chip on">Platforms</span><span class="chip">Kettlebells</span><span class="chip">Sleds</span></div>
+            <div class="chips"><span class="chip on">Open now</span><span class="chip on">Platforms</span><span class="chip" style="border-color:var(--heat);color:var(--heat)">Social</span><span class="chip">Kettlebells</span></div>
           </div>
           <div class="seg"><span class="on">Map</span><span>List</span></div>
           <div class="recenter"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="5"/></svg></div>
@@ -323,6 +603,10 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
               <div class="dsec">
                 <h4>Anvil breakdown</h4>
                 <div id="dcats" style="display:grid;gap:5px"></div>
+              </div>
+              <div class="dsec">
+                <h4>The crowd</h4>
+                <div class="soc-tags"><span class="st">Mixed crowd</span><span class="st">Regulars say hi</span><span class="st">Juice bar</span></div>
               </div>
               <div class="dsec">
                 <h4>At the counter</h4>
@@ -385,6 +669,17 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
       <h2 id="parts-h">Colors, type and parts</h2>
     </div>
     <div class="panel">
+      <h3 id="colors">Color with a job</h3>
+      <p style="color:var(--dust);font-size:14px;max-width:72ch">The black and chalk stay calm and serious, so the few colors that do appear carry meaning. Each one is matched to what color psychology says it does well, and is used only for that job. That keeps the signal strong: if it's orange, you can tap it.</p>
+      <div class="jobs">
+        <div class="job"><i style="background:var(--forge)"></i><div><b>Forge orange</b><span>Energy and urgency. Red-orange raises arousal and draws the eye first, so it marks every call to action: Rate this gym, Paul's pins, the active tab, filter counts.</span><br><code>#FF6A2B</code></div></div>
+        <div class="job"><i style="background:var(--temper)"></i><div><b>Tempered blue</b><span>Trust and reliability. Blue reads as dependable, so it marks verified facts: Paul's pick, hours, phone, directions, website.</span><br><code>#4FA3E0</code></div></div>
+        <div class="job"><i style="background:var(--heat)"></i><div><b>Amber</b><span>Warmth and friendliness. Warm yellow-gold reads as social and welcoming, so it belongs to the Social environment score and crowd tags.</span><br><code>#F2B84B</code></div></div>
+        <div class="job"><i style="background:var(--go)"></i><div><b>Open green</b><span>Go. Kept strictly for "open now," the one status people check before they drive over.</span><br><code>#8FBF7A</code></div></div>
+      </div>
+      <p class="note">Color psychology gives tendencies, not guarantees. The bigger win is consistency: one color, one meaning, everywhere in the app.</p>
+    </div>
+    <div class="panel">
       <h3>Palette</h3>
       <div class="swatches" id="swatches"></div>
     </div>
@@ -418,6 +713,23 @@ footer{color:var(--ash);font-size:13px;border-top:1px dashed var(--edge);padding
     </div>
   </section>
 
+
+  <!-- NAMES -->
+  <section aria-labelledby="nm-h" id="names">
+    <div class="sec-head">
+      <div class="eyebrow">Names</div>
+      <h2 id="nm-h">A name for everyone</h2>
+      <p class="lede">Via Ardua stays as your brand and channel. The app could carry its own name, like "Gym Passport by Via Ardua." These four work equally well for women and men.</p>
+    </div>
+    <div class="names">
+      <div class="nm top"><em>Top pick</em><b>ARDUA</b><span>Your brand, shortened so it reads like a race series. Still means the hard road.</span></div>
+      <div class="nm top"><em>Top pick</em><b>Gym Passport</b><span>Collect a stamp at every gym you visit. Fits day passes and life on the road, and anyone gets it.</span></div>
+      <div class="nm"><b>Endure</b><span>Hebrews 12:1, run with endurance. One strong word with a faith root.</span></div>
+      <div class="nm"><b>Common Ground</b><span>A shared place to train and actually meet people. Built around the Social score.</span></div>
+    </div>
+    <p class="note">Names still need a check for App Store, trademark and Instagram conflicts before you pick one.</p>
+  </section>
+
   <footer>
     <span>Map data © OpenStreetMap contributors, drawn in grayscale for this mockup. The marker sits at the geocoded address on W Nordale Dr, so its exact spot on the lot is approximate.</span>
     <span>Gym facts (24/7, address, shakes, wraps, equipment brands) come from premierfitnessofappleton.com. Anvil scores, distances and review text are samples until Paul rates the gym.</span>
@@ -439,21 +751,24 @@ document.querySelectorAll("[data-anv]").forEach(el=>{el.outerHTML=anvils(+el.dat
 const scale=[[5,"Forged","The real deal. Drive out of your way for it."],[4,"Solid iron","Everything you need, minor gripes."],[3,"Gets it done","Fine for a week on a job."],[2,"Rusty","Thin on gear or rough around the edges."],[1,"Scrap","Skip it unless it's the only option."]];
 document.getElementById("scale").innerHTML=scale.map(([s,w,d])=>`<div class="scale-row">${anvils(s,20)}<div><b>${w}</b><br><span>${d}</span></div></div>`).join("");
 
-const cats=[["Equipment",5],["Functional space",4],["Cleanliness",4.5],["Vibe",4],["Price / value",4],["Day pass ease",3.5],["Hours",5],["Crowding",4.5]];
-document.getElementById("cats").innerHTML=cats.map(([k,v])=>`<div class="cat"><span class="k">${k}</span>${anvils(v,18,2)}<span class="v">${v.toFixed(1)}</span></div>`).join("");
-document.getElementById("dcats").innerHTML=cats.slice(0,6).map(([k,v])=>`<div class="dcat"><span>${k}</span>${anvils(v,15,2)}</div>`).join("");
-const hints={"Equipment":"Quality and variety of the iron","Functional space":"Turf, open floor, room for sleds and carries","Cleanliness":"Floors, gear, showers","Hours":"Fits early starts and late finishes"};
-document.getElementById("rcats").innerHTML=cats.filter(c=>hints[c[0]]).map(([k,v])=>`<div class="rcat"><span class="k">${k}</span>${anvils(v,19,4)}<span class="h">${hints[k]}</span></div>`).join("");
+const cats=[["Equipment",5],["Functional space",4],["Cleanliness",4.5],["Vibe",4],["Social",4],["Price / value",4],["Day pass ease",3.5],["Hours",5],["Crowding",4.5]];
+const sc=k=>k==="Social"?" soc":"";
+document.getElementById("cats").innerHTML=cats.map(([k,v])=>`<div class="cat${sc(k)}"><span class="k">${k}</span>${anvils(v,18,2)}<span class="v">${v.toFixed(1)}</span></div>`).join("");
+document.getElementById("dcats").innerHTML=cats.slice(0,5).map(([k,v])=>`<div class="dcat${sc(k)}"><span>${k}</span>${anvils(v,15,2)}</div>`).join("");
+const hints={"Equipment":"Quality and variety of the iron","Functional space":"Turf, open floor, room for sleds and carries","Cleanliness":"Floors, gear, showers","Social":"Can you meet people and actually talk here?","Hours":"Fits early starts and late finishes"};
+const socscale=[[5,"Hangout","Regulars, a mixed crowd, people you'll end up talking to."],[3,"Friendly enough","Nods and the odd conversation."],[1,"Heads down","Nobody talks. Fine if that's what you want."]];
+document.getElementById("socscale").innerHTML=socscale.map(([s,w,d])=>`<div class="scale-row soc">${anvils(s,20)}<div><b>${w}</b><br><span>${d}</span></div></div>`).join("");
+document.getElementById("rcats").innerHTML=cats.filter(c=>hints[c[0]]).map(([k,v])=>`<div class="rcat${sc(k)}"><span class="k">${k}</span>${anvils(v,19,4)}<span class="h">${hints[k]}</span></div>`).join("");
 document.getElementById("sizes").innerHTML=[[34,"Review input · 34"],[22,"Gym page · 22"],[15,"Map card · 15"]].map(([s,c])=>`<figure>${anvils(4.5,s,s>30?5:3)}<figcaption>${c}</figcaption></figure>`).join("");
 
-const sw=[["Iron","--iron","#121211","Page and tab bar"],["Plate","--plate","#1b1b19","App background"],["Steel","--steel","#262623","Raised surfaces"],["Edge","--edge","#3b3a36","Lines and outlines"],["Chalk","--chalk","#efece4","Text and filled anvils"],["Dust","--dust","#a8a49a","Secondary text"],["Ash","--ash","#6f6c65","Empty anvils"],["Rust","--rust","#c4552d","Stamp only"]];
+const sw=[["Iron","--iron","#121211","Page and tab bar"],["Plate","--plate","#1b1b19","App background"],["Steel","--steel","#262623","Raised surfaces"],["Edge","--edge","#3b3a36","Lines and outlines"],["Chalk","--chalk","#efece4","Text and filled anvils"],["Dust","--dust","#a8a49a","Secondary text"],["Ash","--ash","#6f6c65","Empty anvils"],["Forge","--forge","#ff6a2b","Actions only"],["Temper","--temper","#4fa3e0","Trusted facts"],["Amber","--heat","#f2b84b","Social only"],["Open","--go","#8fbf7a","Open now"]];
 document.getElementById("swatches").innerHTML=sw.map(([n,v,h,u])=>`<div class="swt"><i style="background:var(${v})"></i><div><b>${n}</b><code>${h}</code><span class="note">${u}</span></div></div>`).join("");
 
 const tab=(on)=>[["Find",'<path d="M12 21s-7-6.5-7-12a7 7 0 0114 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/>'],["Via Ardua",'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/>'],["Saved",'<path d="M6 3h12v18l-6-4-6 4z"/>'],["Profile",'<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>']].map(([l,p],i)=>`<div class="${i===on?"on":""}"><svg viewBox="0 0 24 24">${p}</svg>${l}</div>`).join("");
 document.getElementById("tabs1").innerHTML=tab(0);
 
 /* Pins */
-function pinPaul(s=1){return `<svg width="${44*s}" height="${56*s}" viewBox="0 0 44 56" aria-hidden="true"><path d="M22 54C22 54 4 34 4 21a18 18 0 0136 0c0 13-18 33-18 33z" fill="#efece4" stroke="#121211" stroke-width="2.5"/><circle cx="22" cy="21" r="13" fill="#121211"/><svg x="12" y="14" width="20" height="14" viewBox="0 0 24 17"><use href="#anvil" fill="#efece4"/></svg></svg>`}
+function pinPaul(s=1){return `<svg width="${44*s}" height="${56*s}" viewBox="0 0 44 56" aria-hidden="true"><path d="M22 54C22 54 4 34 4 21a18 18 0 0136 0c0 13-18 33-18 33z" fill="#ff6a2b" stroke="#121211" stroke-width="2.5"/><circle cx="22" cy="21" r="13" fill="#121211"/><svg x="12" y="14" width="20" height="14" viewBox="0 0 24 17"><use href="#anvil" fill="#efece4"/></svg></svg>`}
 function pinCommunity(){return `<svg width="26" height="34" viewBox="0 0 26 34" aria-hidden="true"><path d="M13 32S2 20 2 12.5a11 11 0 0122 0C24 20 13 32 13 32z" fill="#262623" stroke="#a8a49a" stroke-width="2"/><circle cx="13" cy="12.5" r="4" fill="#a8a49a"/></svg>`}
 document.getElementById("pins").innerHTML=`<figure>${pinPaul()}<figcaption>Paul reviewed it</figcaption></figure><figure>${pinCommunity()}<figcaption>Community reviews only</figcaption></figure><figure><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15" fill="#262623" stroke="#efece4" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,sans-serif" font-weight="700" font-size="14" fill="#efece4">6</text></svg><figcaption>Cluster when zoomed out</figcaption></figure>`;
 
@@ -496,4 +811,5 @@ function mapSVG(vb,opts={}){
 document.getElementById("bigmap").innerHTML=mapSVG("88 55 214 418",{me:true,pin:.62});
 </script>
 
-</body></html>
+</body>
+</html>
